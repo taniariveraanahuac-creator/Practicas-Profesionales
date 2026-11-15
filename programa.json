@@ -1,0 +1,10 @@
+{
+  "aviso": "Programa publicado para todos. Se actualiza desde Coordinación → Fecha y horario → Descargar programa.json, y luego se sube aquí.",
+  "publishedAt": null,
+  "sched": {
+    "venue": "Edificio 1, planta baja",
+    "cs": "10:00",
+    "ce": "10:20",
+    "slots": {}
+  }
+}

@@ -14,6 +14,8 @@ Coordinación: Mtra. Tania Rivera Lozano.
 - **Rúbrica:** criterios y niveles en vista de alto contraste.
 - **Cartas:** invitaciones en Word para empresas y evaluadores, con su liga de acceso.
 - **Accesos:** liga y código QR personal para cada evaluador y para cada empresa invitada.
+- **Tutorial paso a paso:** se abre solo la primera vez que alguien entra a Evaluar (6 pasos con dibujos; 5 para el invitado de la empresa). Se puede volver a ver desde Evaluar o desde la Guía de uso.
+- **Fecha y horario (solo coordinación):** cambiar la fecha de todos, recorrer el horario, nueva hora de inicio o ajustar practicante por practicante, y publicarlo para todos con `programa.json`.
 - **Seguimiento y Coordinación (solo coordinación):** qué evalúa cada quien en vivo, reapertura de firmas, edición de practicantes, jurado, rúbrica y horarios, y respaldo en .json.
 
 ## Contenido
@@ -21,6 +23,7 @@ Coordinación: Mtra. Tania Rivera Lozano.
 | Archivo | Para qué sirve |
 |---|---|
 | `index.html` | La plataforma completa en un solo archivo: programa, evaluación con rúbrica, resultados, reportes, cartas, accesos con QR, seguimiento y coordinación. |
+| `programa.json` | Programa publicado (fechas, horarios, lugar, coffee break y demás ajustes de coordinación) que ven todos los visitantes. |
 | `.nojekyll` | Le indica a GitHub Pages que publique el archivo tal cual. |
 | `README.md` | Estas instrucciones. |
 
@@ -50,6 +53,14 @@ https://TU-USUARIO.github.io/evaluacion-practicas-ade/#coordinacion
 ```
 
 Desde ese momento ese navegador muestra el panel de control y el interruptor **Editar**. No compartas esa liga con el jurado.
+
+## Cambiar la fecha y el horario para todos
+
+1. Abre la página en tu navegador de coordinación y entra a **Coordinación → Fecha y horario**.
+2. Usa **Cambiar la fecha de todos**, **Recorrer el horario**, **Nueva hora de inicio**, o edita practicante por practicante.
+3. Toca **Descargar programa.json**.
+4. En GitHub entra a **Add file → Upload files**, arrastra `programa.json` (reemplaza al anterior) y toca **Commit changes**.
+5. En 1 o 2 minutos todos ven la nueva fecha y horario. Mientras no lo publiques, la página te muestra el aviso «Tienes cambios sin publicar».
 
 ## Importante: dónde se guardan las evaluaciones
 
