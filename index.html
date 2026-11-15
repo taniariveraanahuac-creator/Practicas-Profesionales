@@ -681,6 +681,70 @@ button.attbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .absent{font-size:12px;color:var(--muted);font-style:italic}
 .notice.ok{border-color:rgba(255,106,31,.3);background:rgba(255,106,31,.06);color:var(--ink)}
 @media (max-width:640px){.hero-actions{display:grid;grid-template-columns:1fr 1fr;width:100%;gap:8px}.hero-actions .hcoord{width:100%;min-width:0;padding-left:8px;padding-right:8px}.hero-actions .hcoord b{font-size:12.5px;white-space:nowrap}.hero-actions .hcoord .chev{display:none}.hero-actions .hcoord .ib{width:32px;height:32px;flex:none}.hero-actions .hcoord{gap:8px;justify-content:flex-start}}
+
+/* ---------- Tutorial paso a paso ---------- */
+.tuto{position:fixed;inset:0;z-index:300;display:grid;place-items:center;padding:16px;background:rgba(8,6,5,.74);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.tuto[hidden]{display:none}
+.tbox{width:min(580px,100%);max-height:calc(100vh - 32px);overflow:auto;background:var(--surface);border:1px solid var(--line2);border-radius:22px;box-shadow:0 30px 80px -20px rgba(0,0,0,.85);padding:20px 22px 18px}
+.ttop{display:flex;align-items:center;gap:10px;justify-content:space-between}
+.tstep{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-deep)}
+.tclose{width:40px;height:40px;border-radius:50%;border:1px solid var(--line2);background:transparent;color:var(--ink);font-size:24px;line-height:1;cursor:pointer}
+.tclose:hover{border-color:var(--accent)}
+.tstage{--tc:#ff7a33;margin:14px 0 12px;border-radius:18px;min-height:200px;display:grid;place-items:center;padding:20px 16px;background:radial-gradient(120% 90% at 50% 0%,color-mix(in srgb,var(--tc) 26%,transparent),transparent 70%),var(--surface2);border:1px solid color-mix(in srgb,var(--tc) 40%,var(--line));overflow:hidden}
+.thead{display:flex;gap:12px;align-items:center}
+.tnum{flex:none;width:46px;height:46px;border-radius:50%;background:var(--tc,#ff7a33);color:#1a0c03;font-weight:800;font-size:21px;display:grid;place-items:center;box-shadow:0 0 18px color-mix(in srgb,var(--tc,#ff7a33) 60%,transparent)}
+.thead h2{font-size:clamp(21px,3.4vw,26px);margin:0;line-height:1.15}
+.ttext{margin:10px 0 0;font-size:15.5px;line-height:1.5;color:var(--ink)}
+.ttip{display:flex;gap:8px;align-items:flex-start;margin:10px 0 0;padding:9px 12px;border-radius:12px;background:color-mix(in srgb,var(--tc,#ff7a33) 12%,transparent);font-size:14px;color:var(--ink)}
+.ttip .ic{flex:none;color:var(--tc,#ff7a33);margin-top:2px}
+.tdots{display:flex;gap:6px;justify-content:center;margin:16px 0 12px}
+.tdots button{width:10px;height:10px;border-radius:99px;border:0;background:var(--line2);padding:0;cursor:pointer;transition:width .25s var(--ease)}
+.tdots button[aria-current="step"]{width:28px;background:var(--accent)}
+.tnav{display:flex;gap:8px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.tnav .grow{flex:1}
+.tnav label{display:flex;gap:6px;align-items:center;font-size:13px;color:var(--muted)}
+/* mini ilustraciones */
+.mk{width:100%;max-width:340px;display:flex;flex-direction:column;gap:8px;align-items:stretch;position:relative}
+.mk-card{background:#fff;color:#1d1714;border-radius:12px;padding:10px 12px;box-shadow:0 10px 24px -14px rgba(0,0,0,.7);font-size:13px}
+.mk-row{display:flex;gap:10px;align-items:center}
+.mk-av{flex:none;width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#ff9a5c,#e2570f);color:#fff;font-weight:800;font-size:12px;display:grid;place-items:center}
+.mk-ln{height:8px;border-radius:99px;background:#e9e1da}
+.mk-phone{width:150px;height:190px;margin:0 auto;border-radius:24px;border:3px solid #fff;background:#120e0c;display:grid;place-items:center;position:relative;box-shadow:0 14px 30px -12px rgba(0,0,0,.8)}
+.mk-phone:before{content:"";position:absolute;top:8px;width:40px;height:5px;border-radius:9px;background:#3a302a}
+.mk-qr{width:96px;height:96px;border-radius:8px;background:#fff;padding:8px;display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.mk-qr i{background:#1d1714;border-radius:1px}.mk-qr i.o{background:transparent}
+.mk-scan{position:absolute;left:22px;right:22px;height:3px;border-radius:3px;background:#ff7a33;box-shadow:0 0 12px #ff7a33;animation:mkscan 2.2s ease-in-out infinite}
+@keyframes mkscan{0%,100%{top:52px}50%{top:136px}}
+.mk-sel{outline:3px solid var(--tc);outline-offset:2px}
+.mk-lvs{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.mk-lv{border-radius:10px;padding:9px 10px;background:#fff;color:#1d1714;font-weight:700;font-size:12.5px;border-top:5px solid var(--c);position:relative}
+.mk-lv small{display:block;font-weight:500;color:#6b5f57;font-size:11px}
+.mk-lv.on{background:color-mix(in srgb,var(--c) 22%,#fff);outline:3px solid var(--c);outline-offset:1px}
+.mk-tap{position:absolute;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.85);border:3px solid #ff7a33;right:-6px;bottom:-8px;animation:mktap 1.6s ease-in-out infinite;pointer-events:none}
+@keyframes mktap{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.7);opacity:.75}}
+.mk-score{display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:15px}
+.mk-score b{font-size:22px;color:#e2570f}
+.mk-btn{align-self:center;display:inline-flex;gap:8px;align-items:center;padding:11px 20px;border-radius:12px;background:linear-gradient(180deg,#ff7a33,#e2570f 60%,#c44707);color:#fff;font-weight:800;font-size:15px;position:relative;box-shadow:0 10px 24px -10px rgba(255,106,31,.9)}
+.mk-ok{display:flex;gap:8px;align-items:center;justify-content:center;color:#4fd08f;font-weight:700;font-size:13.5px}
+.mk-field{background:#fff;color:#6b5f57;border-radius:10px;padding:8px 10px;font-size:12.5px;border:2px solid #e9e1da}
+.mk-field b{display:block;color:#1d1714;font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.mk-field.on{border-color:var(--tc)}
+.mk-pill{display:inline-block;padding:2px 8px;border-radius:99px;background:#fdebdf;color:#b8430a;font-weight:700;font-size:11px}
+/* ---------- Publicar horario ---------- */
+.pubbox{border:1px dashed color-mix(in srgb,var(--accent) 55%,var(--line2));border-radius:14px;padding:14px 16px;background:color-mix(in srgb,var(--accent) 6%,transparent)}
+.pubbox.ok{border-color:color-mix(in srgb,var(--ok) 55%,var(--line2));background:color-mix(in srgb,var(--ok) 7%,transparent)}
+.pubbox h3{font-size:18px;margin:0;display:flex;gap:8px;align-items:center}
+.pubbox ol{margin:10px 0 0;padding-left:20px;font-size:14.5px;line-height:1.55}
+.pubbox ol li{margin:2px 0}
+.qtools{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.qtool{border:1px solid var(--line2);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.qtool b{font-size:15px}
+.qtool .row{gap:8px;flex-wrap:wrap}
+.qtool input:not([type=checkbox]){flex:1;min-width:120px}
+.qtool input[type=checkbox]{flex:none;width:18px;height:18px;min-height:0;min-width:0;padding:0;margin:0;accent-color:var(--accent)}
+.qtool label{justify-content:flex-start}
+.unpub{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 16px;border-radius:14px;border:1px solid rgba(240,192,88,.5);background:var(--warn-soft);color:var(--ink);font-size:14.5px}
+.unpub .ic{color:var(--warn)}.unpub span{flex:1;min-width:200px}
 </style>
 </head>
 <body>
@@ -711,6 +775,7 @@ button.attbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   <main id="app" role="tabpanel" tabindex="-1" aria-labelledby="tab-programa"></main>
 </div>
 <div id="toast" role="status" aria-live="polite" hidden></div>
+<div id="tuto" class="tuto" hidden role="dialog" aria-modal="true" aria-labelledby="tutoT"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>/* qrcode-generator 1.4.4 · MIT · Kazuhiko Arase */
@@ -939,7 +1004,7 @@ function byWho(){
 }
 function myData(){var w=who();if(!w)return null;return S.mode==='db'?(S.docs[S.uid]||null):(S.local[w]||null);}
 function signedCount(sid){var bw=byWho(),n=0;EVALS.forEach(function(e){var ev=bw[e.k]&&bw[e.k].evals&&bw[e.k].evals[sid];if(ev&&ev.signedAt)n++;});return n;}
-function loadLocal(){try{var r=JSON.parse(localStorage.getItem(LS)||'null');if(r){S.local=r.local||{};S.localWho=r.who||null;if(r.sched)S.sched=Object.assign({venue:VENUE0,cs:'10:00',ce:'10:20',slots:{}},r.sched);}}catch(e){}}
+function loadLocal(){try{var r=JSON.parse(localStorage.getItem(LS)||'null');if(r){S.local=r.local||{};S.localWho=r.who||null;if(r.sched){S.hadSched=true;S.sched=Object.assign({venue:VENUE0,cs:'10:00',ce:'10:20',slots:{}},r.sched);}}}catch(e){}}
 function commit(d){
   d.updatedAt=new Date().toISOString();
   if(S.mode==='db'){S.docs[S.uid]=d;S.pending=JSON.parse(JSON.stringify(d));S.ref.set(d).catch(function(err){S.pending=null;toast('No se pudo guardar: '+((err&&err.message)||'error')+'. Revisa que tengas acceso a esta página.');});}
@@ -968,7 +1033,7 @@ function schedPanel(){
    '<label class="f" for="schVenue">Lugar</label><input type="text" id="schVenue" data-sch="venue" value="'+esc(S.sched.venue)+'">'+
    '<div class="row"><label class="f grow" for="schCs">Coffee break, inicio</label><label class="f grow" for="schCe">Coffee break, fin</label></div>'+
    '<div class="row"><input type="time" id="schCs" data-sch="cs" value="'+esc(S.sched.cs)+'" style="flex:1"><input type="time" id="schCe" data-sch="ce" value="'+esc(S.sched.ce)+'" style="flex:1"></div>'+
-   '<div>'+rows+'</div><div class="row" style="justify-content:space-between"><button class="btn" data-act="resetsched">'+ic('undo',18)+'Restablecer programa</button><button class="btn primary" data-act="editsched">'+ic('check',18)+'Listo</button></div></section>';
+   schedTools()+'<div><b style="font-size:15px">Practicante por practicante</b>'+rows+'</div>'+pubBox()+'<div class="row" style="justify-content:space-between"><button class="btn" data-act="resetsched">'+ic('undo',18)+'Restablecer programa</button><button class="btn primary" data-act="editsched">'+ic('check',18)+'Listo</button></div></section>';
 }
 function viewPrograma(){
   var total=ST.length*NEV, signed=0;
@@ -991,10 +1056,10 @@ function viewPrograma(){
     rows+=brk(ce+' – '+addMin(ce,10),'flag','Retroalimentación final y cierre del evento');
     return '<section class="card day-card"><div class="day-head"><div class="sec-h"><span class="badge">'+ic('calendar',20)+'</span><h2>'+esc(cap(dayLabel(g.d)))+'</h2></div><span class="muted small">Inicio '+first.h+' h · '+esc(S.sched.venue)+'</span></div><div class="slots">'+rows+'</div></section>';
   }).join('');
-  var editRow=S.canEdit&&!S.edit?'<div class="secbar">'+coordBtn('practicantes','Editar practicantes')+coordBtn('jurado','Editar jurado')+'<button class="btn" data-act="editsched">'+ic('pen',18)+'Editar días, horarios y lugar</button></div>':'';
+  var editRow=S.canEdit&&isCoord()&&!S.edit?'<div class="secbar">'+coordBtn('practicantes','Editar practicantes')+coordBtn('jurado','Editar jurado')+'<button class="btn" data-act="editsched">'+ic('pen',18)+'Editar días, horarios y lugar</button></div>':'';
   return '<div class="stack">'+
    '<div class="stats">'+stat('users','Practicantes',ST.length)+stat('award','Jurado presente + invitado',CORE+' + 1')+stat('clip','Evaluaciones firmadas',signed+' de '+total)+'</div>'+
-   accessStrip()+editRow+(S.edit&&S.canEdit?schedPanel():'')+juryCard()+cards+
+   unpubBar()+accessStrip()+editRow+(S.edit&&S.canEdit&&isCoord()?schedPanel():'')+juryCard()+cards+
    '<p class="muted small" style="margin:0">Cada exposición dura 10 minutos y va seguida de 10 minutos de retroalimentación del jurado. Los practicantes se ordenan automáticamente por fecha y hora.</p></div>';
 }
 
@@ -1017,7 +1082,7 @@ function chooserView(){
 function viewEvaluar(){
   var w=who();
   var banner=(S.mode==='local')?'<div class="notice">'+ic('info',18)+'<span>'+(window.claude?'Modo local: tus evaluaciones se guardan solo en este navegador y no llegan al promedio compartido. Para firmar en el registro común, abre esta página con tu sesión de Claude.':'Versión web: tus evaluaciones y firmas se guardan en este navegador. Para reunir todo el jurado, usa el respaldo (.json) o la versión en Claude.')+'</span></div>':'';
-  banner='<div class="guidecall">'+ic('book',18)+'<span>¿Primera vez evaluando? Lee la guía de 1 minuto.</span><button type="button" class="btn sm" data-act="gotab" data-t="guia">Ver guía de uso</button></div>'+banner;
+  banner='<div class="guidecall">'+ic('book',18)+'<span>¿Primera vez evaluando? Mira el tutorial de 1 minuto: '+(isGuest(w)?'5':'6')+' pasos con dibujos.</span><button type="button" class="btn sm primary" data-act="tuto">'+ic('present',16)+'Ver tutorial</button><button type="button" class="btn sm" data-act="gotab" data-t="guia">Guía completa</button></div>'+banner;
   if(!w)return '<div class="stack">'+banner+chooserView()+'</div>';
   var me=evByK(w), d=myData()||{evals:{}}, s=stById(S.sid);
   var ev=(d.evals&&d.evals[s.id])||{lv:{},note:'',signedAt:null};
@@ -1351,10 +1416,11 @@ function cfgIn(key,val,label,type){type=type||'text';var id='cf_'+key.replace(/[
 function coordParts(){
   if(!isCoord())return null;
   var sc=S.sched,wsum=CRIT.reduce(function(a,c){return a+(+c.w||0);},0);
-  var nav=[['evento','Evento'],['practicantes','Practicantes'],['jurado','Jurado'],['rubrica','Rúbrica'],['firmas','Firmas'],['datos','Datos']].map(function(x){return '<a class="btn ghost sm" href="#co-'+x[0]+'" data-act="cojump" data-sec="'+x[0]+'">'+x[1]+'</a>';}).join('');
+  var nav=[['evento','Evento'],['horario','Fecha y horario'],['practicantes','Practicantes'],['jurado','Jurado'],['rubrica','Rúbrica'],['firmas','Firmas'],['datos','Datos']].map(function(x){return '<a class="btn ghost sm" href="#co-'+x[0]+'" data-act="cojump" data-sec="'+x[0]+'">'+x[1]+'</a>';}).join('');
   var evento='<section class="card stack co-sec" id="co-evento"><div class="co-h"><span class="idx">01</span><h3>Evento</h3><p class="muted small">Títulos del encabezado, lugar y coffee break.</p></div><div class="co-grid">'+
     cfgIn('top:hl',sc.hl||'Prácticas Profesionales','Título (naranja)')+cfgIn('top:lic',sc.lic||'Administración y Dirección de Empresas','Programa')+cfgIn('top:motto',sc.motto||'Líderes que trascienden','Lema')+cfgIn('top:venue',sc.venue,'Lugar')+
     cfgIn('top:cs',sc.cs,'Coffee break, inicio','time')+cfgIn('top:ce',sc.ce,'Coffee break, fin','time')+'</div>'+'</section>';
+  var horario='<section class="card stack co-sec" id="co-horario"><div class="co-h"><span class="idx">01b</span><h3>Fecha y horario</h3><p class="muted small">Cambia la fecha o recorre la hora de todos a la vez, o ajusta a cada practicante en Programa → Editar días, horarios y lugar.</p></div>'+schedTools()+'<div class="row"><button class="btn" data-act="opensched">'+ic('calendar',18)+'Editar practicante por practicante</button></div>'+pubBox()+'</section>';
   var prs=ST.map(function(s,i){var del=S.confirm==='st:'+s.id;
     return '<div class="co-row"><span class="co-n num">'+('0'+(i+1)).slice(-2)+'</span><div class="co-fields co-st">'+cfgIn('st:'+s.id+':n',s.n,'Nombre')+cfgIn('st:'+s.id+':e',s.e,'Empresa')+cfgIn('st:'+s.id+':rep',s.rep||'','Representante')+cfgIn('st:'+s.id+':d',s.d,'Fecha','date')+cfgIn('st:'+s.id+':h',s.h,'Hora','time')+'</div>'+
       '<button class="btn '+(del?'danger':'ghost')+' sm" data-act="co-del" data-id="'+s.id+'" aria-label="Quitar a '+esc(s.n)+'">'+(del?'Confirmar':ic('trash',16))+'</button></div>';}).join('');
@@ -1374,11 +1440,11 @@ function coordParts(){
   var datos='<section class="card stack co-sec" id="co-datos"><div class="co-h"><span class="idx">06</span><h3>Datos</h3><p class="muted small">Respaldo de toda la configuración y las evaluaciones.</p></div><div class="row"><button class="btn dark" data-act="co-backup"'+(S.dwn?'':' disabled')+'>'+ic('download',18)+'Descargar respaldo (.json)</button>'+
     '<button class="btn '+(rcf?'danger':'')+'" data-act="co-reset">'+ic('undo',18)+(rcf?'Confirmar: restablecer configuración':'Restablecer configuración original')+'</button></div><p class="muted small" style="margin:0">Restablecer devuelve practicantes, jurado, rúbrica y horarios a su versión original. No borra evaluaciones.</p></section>';
   var top='<div class="co-top card"><div><span class="eyebrow-s">Coordinación</span><h2>Panel de control</h2><p class="muted" style="margin:6px 0 0">'+esc((evByK('tania')||{}).n||'Coordinación')+' · '+esc((evByK('tania')||{}).cargo||'')+'. Todo lo que edites aquí se aplica de inmediato para todos.</p></div><div class="co-nav">'+nav+'</div></div>';
-  return {top:top,evento:evento,practicantes:practicantes,jurado:jurado,rubrica:rubrica,firmas:firmas,datos:datos};
+  return {top:top,evento:evento,horario:horario,practicantes:practicantes,jurado:jurado,rubrica:rubrica,firmas:firmas,datos:datos};
 }
 function viewCoord(){var P=coordParts();if(!P)return '<div class="card"><h2 style="font-size:24px">Sección reservada a la coordinación</h2><p class="muted">Solo la coordinadora del programa puede editar esta sección.</p></div>';
-  return '<div class="stack">'+P.top+'<div class="secbar"><button class="btn dark" data-act="gotab" data-t="seguimiento">'+ic('chart',18)+'Ver seguimiento de evaluadores</button><button class="btn" data-act="gotab" data-t="accesos">'+ic('qr',18)+'Ligas y códigos QR</button></div>'+P.evento+P.practicantes+P.jurado+P.rubrica+P.firmas+P.datos+'</div>';}
-var EDITMAP={programa:['evento','practicantes'],evaluar:['jurado'],resultados:['firmas'],reportes:['firmas'],rubrica:['rubrica'],cartas:['jurado','practicantes'],accesos:['jurado']};
+  return '<div class="stack">'+unpubBar()+P.top+'<div class="secbar"><button class="btn dark" data-act="gotab" data-t="seguimiento">'+ic('chart',18)+'Ver seguimiento de evaluadores</button><button class="btn" data-act="gotab" data-t="accesos">'+ic('qr',18)+'Ligas y códigos QR</button></div>'+P.evento+P.horario+P.practicantes+P.jurado+P.rubrica+P.firmas+P.datos+'</div>';}
+var EDITMAP={programa:['evento','horario','practicantes'],evaluar:['jurado'],resultados:['firmas'],reportes:['firmas'],rubrica:['rubrica'],cartas:['jurado','practicantes'],accesos:['jurado']};
 function editDock(){
   if(!S.editMode||!isCoord()||!EDITMAP[S.tab])return '';
   var P=coordParts();if(!P)return '';
@@ -1547,7 +1613,107 @@ function routeHash(){
 }
 
 
+
+/* ---------- Publicar programa para todos (versión GitHub) ---------- */
+var PUB_FILE='programa.json';
+var REPO_URL='https://github.com/taniariveraanahuac-creator/Practicas-Profesionales';
+function schedDefaults(x){return Object.assign({venue:VENUE0,cs:'10:00',ce:'10:20',slots:{}},x||{});}
+function normJ(v){if(Array.isArray(v)){var a=v.map(normJ).filter(function(x){return x!==undefined;});return a.length?a:undefined;}
+  if(v&&typeof v==='object'){var o={},ks=Object.keys(v).sort(),n=0;ks.forEach(function(k){var x=normJ(v[k]);if(x!==undefined){o[k]=x;n++;}});return n?o:undefined;}
+  if(v===''||v==null||v===false)return undefined;return v;}
+function schedKey(x){try{return JSON.stringify(normJ(schedDefaults(x))||{});}catch(e){return '';}}
+function webPub(){return S.mode!=='db'&&!window.claude;}
+function unpublished(){return webPub()&&isCoord()&&schedKey(S.sched)!==schedKey(S.pub||{});}
+async function loadPublished(){
+  try{var r=await fetch(PUB_FILE+'?v='+Date.now(),{cache:'no-store'});if(!r.ok)return;var j=await r.json();var sc=j&&j.sched?j.sched:j;if(!sc||typeof sc!=='object')return;
+    S.pub=schedDefaults(sc);S.pubAt=(j&&j.publishedAt)||null;
+    if(!isCoord()||!S.hadSched){S.sched=JSON.parse(JSON.stringify(S.pub));applySched();try{persistLocal();}catch(e){}}
+    softRender();
+  }catch(e){}
+}
+async function publishSched(){
+  var data=JSON.stringify({aviso:'Archivo generado desde el panel de coordinación. Súbelo a GitHub para que todos vean el programa actualizado.',publishedAt:new Date().toISOString(),sched:S.sched},null,2);
+  if(!S.dwn){toast('La descarga no está disponible en esta vista.');return;}
+  await saveFile(PUB_FILE,data);S.pubDl=true;softRender();toast('Descargado programa.json. Ahora súbelo a GitHub (paso 2).');
+}
+function unpubBar(){if(!unpublished())return '';
+  return '<div class="unpub" role="status">'+ic('info',18)+'<span><b>Tienes cambios sin publicar.</b> Solo tú los ves; el jurado, los invitados y los practicantes siguen viendo el programa anterior.</span><button class="btn primary sm" data-act="gocoord" data-sec="horario">'+ic('download',16)+'Publicar para todos</button></div>';}
+function pubBox(){
+  if(!webPub())return '<div class="pubbox ok"><h3>'+ic('check',18)+'Los cambios se comparten solos</h3><p class="muted small" style="margin:6px 0 0">En esta versión el programa se guarda en el registro común y todos lo ven al instante.</p></div>';
+  var pend=unpublished();
+  return '<div class="pubbox'+(pend?'':' ok')+'"><h3>'+ic(pend?'flag':'check',18)+(pend?'Publica los cambios para que todos los vean':'Todo publicado')+'</h3>'+
+   '<p class="muted small" style="margin:6px 0 0">'+(pend?'Por ahora los cambios están solo en este navegador.':'Lo que ves es lo mismo que ven todos.')+(S.pubAt?' Última publicación: '+esc(fdate(S.pubAt))+'.':'')+'</p>'+
+   (pend?'<ol><li><button class="btn primary sm" data-act="publish">'+ic('download',16)+'Descargar programa.json</button></li>'+
+   '<li>Abre <a href="'+REPO_URL+'/upload/main" target="_blank" rel="noopener">tu repositorio en GitHub → Subir archivos</a> '+ic('ext',14)+'</li>'+
+   '<li>Arrastra el archivo <b>programa.json</b> que acabas de descargar (reemplaza al anterior).</li>'+
+   '<li>Toca el botón verde <b>Commit changes</b>.</li>'+
+   '<li>Espera 1 o 2 minutos y recarga la página: el aviso desaparece y todos ven la nueva fecha y horario.</li></ol>':'')+'</div>';}
+function schedTools(){
+  var f=ST[0]||{d:'',h:'08:00'};
+  return '<div class="qtools">'+
+   '<div class="qtool"><b>'+ic('calendar',16)+' Cambiar la fecha de todos</b><span class="muted small">Mueve a todos los practicantes al mismo día; las horas no cambian.</span><div class="row"><input type="date" data-q="alld" aria-label="Nueva fecha para todos" value="'+esc(f.d)+'"><button class="btn sm primary" data-act="q-alld">Aplicar</button></div></div>'+
+   '<div class="qtool"><b>'+ic('clock',16)+' Recorrer el horario</b><span class="muted small">Adelanta o atrasa a todos. Ejemplo: 30 = media hora más tarde, -15 = un cuarto de hora antes.</span><div class="row"><input type="number" step="5" data-q="shift" aria-label="Minutos a recorrer" value="30"><button class="btn sm primary" data-act="q-shift">Recorrer</button></div><label class="muted small" style="display:flex;gap:6px;align-items:center"><input type="checkbox" data-q="shiftcb" checked> También el coffee break</label></div>'+
+   '<div class="qtool"><b>'+ic('clock',16)+' Nueva hora de inicio</b><span class="muted small">El primer practicante empieza a esta hora y los demás se recorren igual.</span><div class="row"><input type="time" data-q="start" aria-label="Nueva hora de inicio" value="'+esc(f.h)+'"><button class="btn sm primary" data-act="q-start">Aplicar</button></div></div>'+
+   '</div>';}
+function toMin(t){var p=String(t||'0:0').split(':');return (+p[0])*60+(+p[1]||0);}
+function fromMin(x){x=((x%1440)+1440)%1440;return ('0'+Math.floor(x/60)).slice(-2)+':'+('0'+(x%60)).slice(-2);}
+function shiftAll(m,cb){var sc=S.sched;sc.slots=sc.slots||{};
+  ST.forEach(function(s){var o=sc.slots[s.id]=sc.slots[s.id]||{};o.h=fromMin(toMin(s.h)+m);});
+  sc.add&&sc.add.forEach(function(a){if(sc.slots[a.id])a.h=sc.slots[a.id].h;});
+  if(cb){sc.cs=fromMin(toMin(sc.cs)+m);sc.ce=fromMin(toMin(sc.ce)+m);}
+  saveSched();}
+/* ---------- Tutorial paso a paso ---------- */
+var QRP='1111111100000110111011011101101110110000011111111'.split('');
+function mkQR(){return '<div class="mk-qr" aria-hidden="true">'+QRP.map(function(b,i){var r=Math.floor(i/7),c=i%7;var on=((r<2&&c<2)||(r<2&&c>4)||(r>4&&c<2))?1:((r*3+c*5+r*c)%3!==0);return '<i'+(on?'':' class="o"')+'></i>';}).join('')+'</div>';}
+function tutoSlides(){
+  var g=isGuest(who()),me=evByK(who())||EVALS[0],nm=g?'Invitado':me.s,a=ST[0]||{n:'Practicante',h:'08:00'},b=ST[1]||a,c=ST[2]||a;
+  var C=['#ff7a33','#6fb1ff','#ffc94d','#4ee39b','#c58cff','#ff7a6b'];
+  var s1={c:C[0],t:g?'Escanea el QR de tu carta':'Entra con tu liga o tu QR',p:g?'En tu carta de invitación viene un código QR. Ábrelo con la cámara del celular: te lleva directo a la evaluación de tu practicante.':'Abre tu liga personal o escanea tu código QR con la cámara del celular. No necesitas usuario ni contraseña.',
+    tip:'Usa el mismo celular o computadora todo el evento: ahí se guardan tus firmas.',
+    m:'<div class="mk-phone">'+mkQR()+'<span class="mk-scan"></span></div>'};
+  var s2=g?{c:C[1],t:'Escribe tu nombre, cargo y empresa',p:'Tu nombre completo es obligatorio: aparece en tu firma y en el reporte del practicante.',tip:'Solo lo escribes una vez.',
+    m:'<div class="mk"><div class="mk-field on"><b>Nombre completo *</b>Lic. Ana Pérez Gómez</div><div class="mk-field"><b>Cargo</b>Gerente de Operaciones</div><div class="mk-field"><b>Empresa</b>'+esc((stById(S.sid)||a).e)+'</div><span class="mk-tap" style="right:8px;top:30px;bottom:auto"></span></div>'}
+   :{c:C[1],t:'Revisa que seas tú',p:'Arriba debe decir <b>«Evaluando como '+esc(nm)+'»</b> con tu foto. Si ves otro nombre, toca tu foto para cambiar.',tip:'Si comparten dispositivo, cada quien toca su foto antes de calificar.',
+    m:'<div class="mk"><div class="mk-card mk-sel"><div class="mk-row"><span class="mk-av">'+esc(ini(me.n))+'</span><div style="flex:1"><b>Evaluando como '+esc(nm)+'</b><div class="mk-ln" style="width:70%;margin-top:6px"></div></div><span class="mk-pill">Tú</span></div></div><span class="mk-tap" style="right:14px;bottom:-4px"></span></div>'};
+  var s3={c:C[2],t:'Elige al practicante',p:'La lista ya está en orden de horario. Toca el nombre de quien está exponiendo.',tip:'Puedes avanzar o regresar con las flechas ← →.',
+    m:'<div class="mk">'+[a,b,c].map(function(x,i){return '<div class="mk-card'+(i===1?' mk-sel':'')+'"><div class="mk-row"><span class="mk-av">'+esc(ini(x.n))+'</span><div style="flex:1"><b>'+esc(x.n.split(' ').slice(0,2).join(' '))+'</b><div class="muted" style="color:#6b5f57;font-size:11.5px">'+esc(x.h)+' h</div></div>'+(i===1?'<span class="mk-pill">Expone</span>':'')+'</div></div>';}).join('')+'<span class="mk-tap" style="right:10px;bottom:56px"></span></div>'};
+  var s4={c:C[3],t:'Toca un nivel en cada criterio',p:'Son <b>'+CRIT.length+' criterios</b>. En cada uno elige un nivel. El puntaje se suma solo; no tienes que hacer cuentas.',tip:'Sobresaliente = 100% de los puntos · Satisfactorio = 80% · Básico = 60% · Insuficiente = 30%.',
+    m:'<div class="mk"><div class="mk-score" style="color:var(--ink)"><span>'+esc(CRIT[0].t)+'</span><span class="mk-pill">'+CRIT[0].w+' pts</span></div><div class="mk-lvs">'+LV.map(function(l,i){return '<div class="mk-lv'+(i===0?' on':'')+'" style="--c:'+RLC[i]+'">'+l.n+'<small>'+Math.round(l.f*100)+'% de los puntos</small>'+(i===0?'<span class="mk-tap"></span>':'')+'</div>';}).join('')+'</div></div>'};
+  var s5={c:C[4],t:'Deja tus comentarios',p:'Escribe fortalezas, áreas de oportunidad y una recomendación. Es opcional, pero al practicante le ayuda mucho.',tip:'Los comentarios aparecen en su reporte final.',
+    m:'<div class="mk"><div class="mk-card"><b style="font-size:12px">Comentarios para el practicante</b><p style="margin:6px 0 0;font-size:12.5px;line-height:1.45">Excelente dominio del tema y buen manejo del tiempo. Te recomiendo reforzar los resultados con cifras.</p><div class="mk-ln" style="width:40%;margin-top:8px"></div></div></div>'};
+  var s6={c:C[5],t:'Firma y listo',p:'Cuando calificaste los '+CRIT.length+' criterios, toca <b>Firmar evaluación</b>. Queda registrada con tu nombre, la hora y un folio'+(g?'.':', y pasas solo al siguiente practicante.'),tip:'¿Te equivocaste? Abre al practicante y toca «Retirar firma para corregir».',
+    m:'<div class="mk"><div class="mk-card"><div class="mk-score"><span>Total</span><b>92 / 100</b></div></div><span class="mk-btn">'+ic('pen',18)+'Firmar evaluación<span class="mk-tap" style="right:-10px;bottom:-10px"></span></span><div class="mk-ok">'+ic('check',16)+'Firmada · Folio PP-4F2A</div></div>'};
+  return g?[s1,s2,s4,s5,s6]:[s1,s2,s3,s4,s5,s6];
+}
+function renderTuto(){
+  var el=document.getElementById('tuto');if(!el)return;var sl=tutoSlides(),i=Math.max(0,Math.min(S.tutoI||0,sl.length-1)),x=sl[i],last=i===sl.length-1;S.tutoI=i;
+  el.innerHTML='<div class="tbox" style="--tc:'+x.c+'"><div class="ttop"><span class="tstep">Tutorial · Paso '+(i+1)+' de '+sl.length+'</span><button type="button" class="tclose" data-tu="close" aria-label="Cerrar tutorial">×</button></div>'+
+   '<div class="tstage" style="--tc:'+x.c+'">'+x.m+'</div>'+
+   '<div class="thead"><span class="tnum">'+(i+1)+'</span><h2 id="tutoT">'+x.t+'</h2></div><p class="ttext">'+x.p+'</p>'+(x.tip?'<p class="ttip">'+ic('info',16)+'<span>'+x.tip+'</span></p>':'')+
+   '<div class="tdots" role="group" aria-label="Pasos">'+sl.map(function(_,j){return '<button type="button" data-tu="go" data-i="'+j+'" aria-label="Paso '+(j+1)+'"'+(j===i?' aria-current="step"':'')+'></button>';}).join('')+'</div>'+
+   '<div class="tnav">'+(i>0?'<button type="button" class="btn" data-tu="prev">'+ic('prev',18)+'Anterior</button>':'<button type="button" class="btn ghost" data-tu="close">Saltar</button>')+'<span class="grow"></span>'+
+   (last?'<button type="button" class="btn primary" data-tu="close">'+ic('check',18)+'¡Listo, a evaluar!</button>':'<button type="button" class="btn primary" data-tu="next">Siguiente'+ic('arrow',18)+'</button>')+'</div></div>';
+  var f=el.querySelector(last?'[data-tu="close"].btn.primary':'[data-tu="next"]');if(f)f.focus({preventScroll:true});
+}
+function openTuto(){var el=document.getElementById('tuto');if(!el)return;S.tutoI=0;S.tutoBack=document.activeElement;el.hidden=false;document.body.style.overflow='hidden';renderTuto();}
+function closeTuto(){var el=document.getElementById('tuto');if(!el||el.hidden)return;el.hidden=true;document.body.style.overflow='';try{localStorage.setItem('pp-tuto','1');}catch(e){}if(S.tutoBack&&S.tutoBack.focus)S.tutoBack.focus({preventScroll:true});}
+(function(){var el=document.getElementById('tuto');if(!el)return;
+  el.addEventListener('click',function(e){if(e.target===el){closeTuto();return;}var b=e.target.closest('[data-tu]');if(!b)return;var a=b.dataset.tu;
+    if(a==='close')closeTuto();else if(a==='next'){S.tutoI++;renderTuto();}else if(a==='prev'){S.tutoI--;renderTuto();}else if(a==='go'){S.tutoI=+b.dataset.i;renderTuto();}});
+  document.addEventListener('keydown',function(e){if(el.hidden)return;if(e.key==='Escape'){closeTuto();}else if(e.key==='ArrowRight'&&S.tutoI<tutoSlides().length-1){S.tutoI++;renderTuto();}else if(e.key==='ArrowLeft'&&S.tutoI>0){S.tutoI--;renderTuto();}
+    else if(e.key==='Tab'){var fs=el.querySelectorAll('button');if(!fs.length)return;var f0=fs[0],fl=fs[fs.length-1];if(e.shiftKey&&document.activeElement===f0){e.preventDefault();fl.focus();}else if(!e.shiftKey&&document.activeElement===fl){e.preventDefault();f0.focus();}}});
+})();
+function maybeAutoTuto(){if(S.tab!=='evaluar'||!who()||S.tutoAuto)return;var seen=false;try{seen=localStorage.getItem('pp-tuto')==='1';}catch(e){}if(seen)return;S.tutoAuto=true;setTimeout(openTuto,350);}
 /* ---------- Guía de uso ---------- */
+function coordGuide(){if(!isCoord())return '';
+  function st(a){return '<ol class="gsteps">'+a.map(function(t,i){return '<li><span class="gn num">'+(i+1)+'</span><span>'+t+'</span></li>';}).join('')+'</ol>';}
+  return '<section class="card gcard"><div class="sec-h"><span class="badge">'+ic('shield',20)+'</span><div><h2>Cambiar la fecha y el horario</h2><p class="muted small" style="margin:2px 0 0">Solo coordinación · tarda 2 minutos</p></div></div>'+
+   st(['Ve a <b>Coordinación → Fecha y horario</b> (o <b>Programa → Editar días, horarios y lugar</b>).',
+       'Para mover a todos: usa <b>Cambiar la fecha de todos</b>, <b>Recorrer el horario</b> o <b>Nueva hora de inicio</b>.',
+       'Para un solo practicante: cambia su fecha y hora en la lista; el programa se reordena solo.',
+       (webPub()?'Toca <b>Descargar programa.json</b>, súbelo a GitHub con <b>Add file → Upload files</b> y toca <b>Commit changes</b>.':'Los cambios se guardan y todos los ven al instante.'),
+       (webPub()?'En 1 o 2 minutos todos ven la nueva fecha y horario en el encabezado, el programa, las cartas y los reportes.':'Revisa el encabezado: muestra la nueva fecha y hora.')])+
+   '<div class="row" style="gap:8px;flex-wrap:wrap;margin-top:12px"><button class="btn primary" data-act="gocoord" data-sec="horario">'+ic('calendar',18)+'Ir a Fecha y horario</button></div></section>';}
 function viewGuia(){
   function steps(a){return '<ol class="gsteps">'+a.map(function(t,i){return '<li><span class="gn num">'+(i+1)+'</span><span>'+t+'</span></li>';}).join('')+'</ol>';}
   function gcard(icn,title,sub,body,cls){return '<section class="card gcard'+(cls?' '+cls:'')+'"><div class="sec-h"><span class="badge">'+ic(icn,20)+'</span><div><h2>'+title+'</h2><p class="muted small" style="margin:2px 0 0">'+sub+'</p></div></div>'+body+'</section>';}
@@ -1581,8 +1747,8 @@ function viewGuia(){
     '<p class="muted small" style="margin:10px 0 0">'+(abl.length?'Hoy no asisten: <b>'+esc(abl.map(function(e){return e.n;}).join(', '))+'</b>. Jurado presente: '+CORE+'.':'Jurado presente: '+CORE+' evaluadores.')+(isCoord()?' La coordinación marca la asistencia en <b>Programa → Jurado evaluador</b>.':'')+'</p>'+
     '<div class="gex"><span>Ejemplo</span>4 evaluadores presentes firman 92, 88, 90 y 86 → calificación <b class="num">89.0</b>. Si también firma la empresa con 95 → <b class="num">90.2</b>.</div></section>';
   return '<div class="stack"><section class="card ghero"><div class="sec-h"><span class="badge">'+ic('book',20)+'</span><div><h2>Guía de uso</h2><p class="muted small" style="margin:2px 0 0">Cómo funciona la evaluación del '+esc(dayLabel(ST[0].d))+'</p></div></div>'+
-    '<div class="row" style="gap:8px;flex-wrap:wrap;margin-top:12px"><button class="btn primary" data-act="gotab" data-t="evaluar">'+ic('clip',18)+'Ir a evaluar</button><button class="btn" data-act="gotab" data-t="rubrica">'+ic('book',18)+'Ver rúbrica</button><button class="btn" data-act="gotab" data-t="programa">'+ic('calendar',18)+'Ver programa</button></div></section>'+
-    '<div class="guide-grid">'+gcard('clip','Jurado evaluador','Maryfer, José Manuel, Carlos, Xareni y Tania',jur)+gcard('building','Evaluador invitado','Representante de la empresa',inv)+gcard('users','Practicantes','Cómo prepararte y qué esperar',pra)+'</div>'+avg+
+    '<div class="row" style="gap:8px;flex-wrap:wrap;margin-top:12px"><button class="btn primary" data-act="tuto">'+ic('present',18)+'Ver tutorial paso a paso</button><button class="btn" data-act="gotab" data-t="evaluar">'+ic('clip',18)+'Ir a evaluar</button><button class="btn" data-act="gotab" data-t="rubrica">'+ic('book',18)+'Ver rúbrica</button><button class="btn" data-act="gotab" data-t="programa">'+ic('calendar',18)+'Ver programa</button></div></section>'+
+    '<div class="guide-grid">'+gcard('clip','Jurado evaluador','Maryfer, José Manuel, Carlos, Xareni y Tania',jur)+gcard('building','Evaluador invitado','Representante de la empresa',inv)+gcard('users','Practicantes','Cómo prepararte y qué esperar',pra)+'</div>'+avg+coordGuide()+
     '<p class="muted small" style="margin:0">Dudas: Mtra. Tania Rivera Lozano, Coordinación de ADE · ext. 154 · coordadmin.uac@anahuac.mx</p></div>';
 }
 /* ---------- Render y eventos ---------- */
@@ -1595,6 +1761,7 @@ function render(){
   var dock=editDock();app.innerHTML=dock?'<div class="stack">'+dock+v()+'</div>':v();S.dirty=false;updateHero();
   var et=document.getElementById('editToggle');if(et){et.hidden=!isCoord();var ei=et.querySelector('input');if(ei)ei.checked=!!S.editMode;}document.body.classList.toggle('on-eval',S.tab==='evaluar'&&!!who());
   if(S.focusLv){var fe=document.getElementById(S.focusLv);if(fe)fe.focus({preventScroll:true});S.focusLv=null;}
+  maybeAutoTuto();
 }
 function softRender(){
   var a=document.activeElement;
@@ -1643,6 +1810,12 @@ app.addEventListener('click',function(e){
   else if(a==='changewho'){S.preWho=null;switchWho(null);render();}
   else if(a==='ltab'){S.ltab=b.dataset.v;render();}
   else if(a==='editsched'){S.edit=!S.edit;render();}
+  else if(a==='tuto'){openTuto();}
+  else if(a==='publish'){publishSched();}
+  else if(a==='opensched'){S.edit=true;S.tab='programa';try{history.replaceState(null,'','#programa');}catch(x){}render();var sp=document.querySelector('.schrow');if(sp)sp.scrollIntoView({behavior:'smooth',block:'center'});}
+  else if(a==='q-alld'){if(!isCoord())return;var box=b.closest('.qtool'),v=box&&box.querySelector('[data-q="alld"]').value;if(!v){toast('Elige una fecha.');return;}var sc3=S.sched;sc3.slots=sc3.slots||{};ST.forEach(function(s){(sc3.slots[s.id]=sc3.slots[s.id]||{}).d=v;});saveSched();toast('Todos pasan al '+dayLabel(v));}
+  else if(a==='q-shift'){if(!isCoord())return;var box2=b.closest('.qtool'),m=Math.round(+box2.querySelector('[data-q="shift"]').value||0),cb=box2.querySelector('[data-q="shiftcb"]').checked;if(!m){toast('Escribe cuántos minutos.');return;}shiftAll(m,cb);toast('Horario recorrido '+(m>0?m+' min más tarde':(-m)+' min antes'));}
+  else if(a==='q-start'){if(!isCoord())return;var box3=b.closest('.qtool'),v3=box3.querySelector('[data-q="start"]').value;if(!v3||!ST.length){toast('Elige una hora.');return;}var m3=toMin(v3)-toMin(ST[0].h);if(!m3){toast('Ya empieza a esa hora.');return;}shiftAll(m3,true);toast('Ahora empieza a las '+v3+' h');}
   else if(a==='abs'){if(!isCoord())return;var k=b.dataset.k,sc=S.sched;sc.abs=sc.abs||{};if(sc.abs[k])delete sc.abs[k];else sc.abs[k]=true;saveSched();toast(sc.abs[k]?evByK(k).s+' marcado como ausente':evByK(k).s+' marcado como presente');}
   else if(a==='resetsched'){S.sched={venue:VENUE0,cs:'10:00',ce:'10:20',slots:{}};saveSched();toast('Programa restablecido');}
   else if(a==='rpick'){S.rsid=b.dataset.sid;render();}
@@ -1683,7 +1856,7 @@ async function boot(){
   document.addEventListener('qrready',function(){if(S.tab==='accesos')render();});
   window.addEventListener('hashchange',function(){if(routeHash())render();});
   S.fecha=today();loadLocal();applySched();render();
-  var c=window.claude;if(!c||!c.use){S.dwn=WEB_DWN;S.ready=true;render();return;}
+  var c=window.claude;if(!c||!c.use){S.dwn=WEB_DWN;S.ready=true;render();loadPublished();return;}
   var r=await Promise.all([c.use('db'),c.use('user'),c.use('downloads')]).catch(function(){return [null,null,null];});
   S.dwn=r[2]||null;
   var db=r[0],user=r[1],uid=null;
