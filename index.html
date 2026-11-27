@@ -816,6 +816,63 @@ label.f{font-size:15.5px;color:var(--ink)}
 .rubrow{grid-template-columns:200px repeat(4,minmax(0,1fr))}
 .rubcell .pt{flex-wrap:wrap}
 .rubric th,.rubric td{font-size:16px}
+/* ===== Rúbrica en fondo blanco ===== */
+.crit.card{--l0:#17784a;--l1:#2456a8;--l2:#a56500;--l3:#c0352a;--on-lc:#ffffff;background:#ffffff;color:#1d1d1f;border:1px solid #e4ddd6;box-shadow:0 14px 30px -20px rgba(0,0,0,.7)}
+.crit.card .crit-h{border-bottom:2px solid #ece6e0}
+.crit.card .crit-h h3{color:#1d1d1f}
+.crit.card .crit-h .badge{background:#fff1e8;color:#c2410c;border:1.5px solid #f6c7a8}
+.crit.card .crit-h .pts{color:#5b524b}
+.crit.card .crit-h .pts b{color:#1d1d1f!important}
+.crit.card .lv{background:#ffffff;border:2px solid color-mix(in srgb,var(--lc) 35%,#e4ddd6);border-top:0;box-shadow:0 2px 0 rgba(0,0,0,.03)}
+.crit.card .lv .n{background:var(--lc);color:#fff}
+.crit.card .lv .n .num{color:#fff}
+.crit.card .lv .d{color:#2b2622}
+.crit.card .lv:hover:not([disabled]){background:color-mix(in srgb,var(--lc) 6%,#fff);border-color:var(--lc)}
+.crit.card .lv[aria-checked="true"]{background:color-mix(in srgb,var(--lc) 13%,#fff);border:3px solid var(--lc);outline:3px solid color-mix(in srgb,var(--lc) 30%,transparent);outline-offset:1px;box-shadow:0 14px 26px -14px var(--lc)}
+.crit.card .lv[aria-checked="true"] .n{background:var(--lc)}
+.crit.card .lv[aria-checked="true"] .d{color:#111;font-weight:600}
+.crit.card .lv[aria-checked="true"]::after{background:var(--lc);color:#fff}
+.crit.card .lv[aria-checked="true"] .n>span:first-child::before{content:"✓ "}
+.crit.card .lvs:has(.lv[aria-checked="true"]) .lv:not([aria-checked="true"]){opacity:.6}
+.crit.card .lvs:has(.lv[aria-checked="true"]) .lv:not([aria-checked="true"]):hover{opacity:1}
+.crit.card :focus-visible{outline:3px solid #c2410c}
+/* Rúbrica (pestaña) en blanco */
+.rubdark{background:#ffffff;color:#1d1d1f;border:1px solid #e4ddd6;box-shadow:0 24px 60px -34px rgba(0,0,0,.8)}
+.rubdark .rh h2{color:#1d1d1f}
+.rubdark .rh p{color:#5b524b}
+.rubdark .eyebrow-s{color:#c2410c!important}
+.rubdark .rublv span:nth-child(1),.rubdark .rubcell:nth-child(2){--lc:#17784a!important}
+.rubdark .rublv span:nth-child(2),.rubdark .rubcell:nth-child(3){--lc:#2456a8!important}
+.rubdark .rublv span:nth-child(3),.rubdark .rubcell:nth-child(4){--lc:#a56500!important}
+.rubdark .rublv span:nth-child(4),.rubdark .rubcell:nth-child(5){--lc:#c0352a!important}
+.rubdark .rublv span{background:var(--lc);color:#fff;border-color:var(--lc);box-shadow:none;text-shadow:none}
+.rubdark .rubhead{background:#faf6f2;border:1.5px solid #ece2d8}
+.rubdark .rubhead .w{color:#c2410c;text-shadow:none}
+.rubdark .rubhead .w small{color:#7a6f66}
+.rubdark .rubhead b{color:#1d1d1f}
+.rubdark .rubhead .ic{color:#c2410c}
+.rubdark .rubcell{background:#ffffff;border:2px solid color-mix(in srgb,var(--lc) 35%,#e4ddd6);padding:0 0 14px;overflow:hidden;box-shadow:none}
+.rubdark .rubcell::before{display:none}
+.rubdark .rubcell:hover{border-color:var(--lc);background:color-mix(in srgb,var(--lc) 5%,#fff);box-shadow:0 10px 22px -16px var(--lc)}
+.rubdark .rubcell .pt{background:var(--lc);color:#fff;text-shadow:none;padding:10px 14px;align-items:center}
+.rubdark .rubcell .pt b{color:#fff;text-shadow:none}
+.rubdark .rubcell p{color:#2b2622;padding:0 14px;margin-top:12px}
+.rubdark .rubtot{border-top:2px solid #ece6e0;color:#5b524b}
+.rubdark .rubtot b{color:#1d1d1f}
+/* Color propio por estudiante */
+.stbtn{--sc:var(--accent);border-left:5px solid var(--sc);background:color-mix(in srgb,var(--sc) 7%,transparent);margin-bottom:4px}
+.stbtn .av{background:var(--sc);border-color:var(--sc);color:#120d0a;font-weight:800}
+.stbtn:hover{background:color-mix(in srgb,var(--sc) 16%,transparent)}
+.stbtn[aria-current="true"]{background:color-mix(in srgb,var(--sc) 26%,transparent);box-shadow:inset 0 0 0 2px var(--sc)}
+.stbtn[aria-current="true"]::before{display:none}
+.stbtn[aria-current="true"] .av{background:var(--sc);border-color:#fff;color:#120d0a;box-shadow:0 0 0 2px var(--sc)}
+.stbtn[aria-current="true"] b{color:#fff}
+.sticky-score{--sc:var(--accent);background:linear-gradient(120deg,color-mix(in srgb,var(--sc) 30%,#1a1512),#120e0c 70%);border:1.5px solid color-mix(in srgb,var(--sc) 55%,transparent)}
+.sticky-score::before{background:var(--sc);width:7px}
+.sticky-score .band{color:var(--sc)}
+.stu-dot{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--sc);margin-bottom:4px}
+.stu-dot::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--sc)}
+.stsel select{border:2px solid var(--sc);font-weight:700}
 </style>
 </head>
 <body>
@@ -1061,6 +1118,8 @@ function fmt(n){return (Math.round(n*10)/10).toFixed(1).replace(/\.0$/,'');}
 function band(n){return n>=90?'Sobresaliente':n>=75?'Satisfactorio':n>=60?'Básico':'Insuficiente';}
 function toast(m){toastEl.textContent=m;toastEl.hidden=false;clearTimeout(toastT);toastT=setTimeout(function(){toastEl.hidden=true;},3200);}
 var FZ=[0.9,1,1.12,1.25,1.4];
+var SCOL=['#ff7a45','#3fd0a0','#6fa8ff','#f2c14e','#c08bff','#ff6f9f','#38c7d6','#9ed35a','#ff9d5c','#8f9bff','#f08a6e','#5fd6c0'];
+function scol(id){var i=ST.findIndex(function(x){return x.id===id;});return SCOL[(i<0?0:i)%SCOL.length];}
 function setFz(i){S.fz=Math.max(0,Math.min(FZ.length-1,i));try{localStorage.setItem('pp_fz',String(S.fz));}catch(e){}document.documentElement.style.setProperty('--ez',FZ[S.fz]);}
 S.fz=1;try{var _f=localStorage.getItem('pp_fz');if(_f!=null&&!isNaN(+_f))S.fz=+_f;}catch(e){}setFz(S.fz);
 function fzCtl(){return '<div class="fzctl" role="group" aria-label="Tamaño de letra"><button type="button" data-act="fz" data-d="-1" aria-label="Letra más chica"'+(S.fz<=0?' disabled':'')+'>A−</button><span>'+Math.round(FZ[S.fz]*100)+'%</span><button type="button" data-act="fz" data-d="1" aria-label="Letra más grande"'+(S.fz>=FZ.length-1?' disabled':'')+'>A+</button></div>';}
@@ -1167,7 +1226,7 @@ function viewEvaluar(){
 
   var list=ST.map(function(x){
     var e=d.evals&&d.evals[x.id], st=e&&e.signedAt?'<span class="pill ok">'+ic('check',13)+fmt(score(e))+'</span>':e&&e.bk?'<span class="pill acc">En edición</span>':started(e)?'<span class="pill warn">Borrador</span>':'<span class="pill">Pendiente</span>';
-    return '<button class="stbtn" data-act="pick" data-sid="'+x.id+'"'+(x.id===s.id?' aria-current="true"':'')+'><span class="av sm">'+esc(ini(x.n))+'</span><span class="tx"><b>'+esc(x.n)+'</b><span class="meta"><span class="num">'+x.h+' h</span>'+st+'</span></span></button>';
+    return '<button class="stbtn" style="--sc:'+scol(x.id)+'" data-act="pick" data-sid="'+x.id+'"'+(x.id===s.id?' aria-current="true"':'')+'><span class="av sm">'+esc(ini(x.n))+'</span><span class="tx"><b>'+esc(x.n)+'</b><span class="meta"><span class="num">'+x.h+' h</span>'+st+'</span></span></button>';
   }).join('');
   var sel='<select id="selSid" data-sel="sid" aria-label="Practicante">'+ST.map(function(x){return '<option value="'+x.id+'"'+(x.id===s.id?' selected':'')+'>'+esc(x.n)+'</option>';}).join('')+'</select>';
 
@@ -1211,8 +1270,8 @@ function viewEvaluar(){
   return '<div class="stack">'+banner+pb+
    whoBar(w,isG?((ev.gn||'').trim()||me.n):me.n)+(S.showMy?myAccess(w):'')+
    '<div class="evgrid"><aside class="card stlist" aria-label="Practicantes">'+list+'</aside><div class="stack" style="min-width:0">'+
-   '<div class="stsel">'+sel+'</div>'+evnav+
-   '<div class="sticky-score"><div style="min-width:0"><h2>'+esc(s.n)+'</h2><span class="muted small">'+esc(s.e)+' · '+sdate(s.d)+' · '+s.h+' h</span></div><div class="big num">'+fmt(tot)+'<small> / 100</small><span class="band">'+(ok?band(tot):'En curso')+'</span></div></div>'+
+   '<div class="stsel" style="--sc:'+scol(s.id)+'">'+sel+'</div>'+evnav+
+   '<div class="sticky-score" style="--sc:'+scol(s.id)+'"><div style="min-width:0"><span class="stu-dot">Practicante '+(ST.indexOf(s)+1)+'</span><h2>'+esc(s.n)+'</h2><span class="muted small">'+esc(s.e)+' · '+sdate(s.d)+' · '+s.h+' h</span></div><div class="big num">'+fmt(tot)+'<small> / 100</small><span class="band">'+(ok?band(tot):'En curso')+'</span></div></div>'+
    gcard+crit+
    '<section class="card stack"><label class="f" for="note">Comentarios para el practicante (opcional)</label><textarea id="note" data-note="1"'+(signed?' disabled':'')+' placeholder="Fortalezas, áreas de oportunidad, recomendaciones">'+esc(ev.note||'')+'</textarea>'+sign+
    '<div class="row" style="justify-content:flex-end"><button class="btn" data-act="pick" data-sid="'+nxt.id+'">Siguiente: '+esc(nxt.n.split(' ')[0])+ic('arrow',18)+'</button></div></section>'+
