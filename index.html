@@ -819,6 +819,8 @@ label.f{font-size:15.5px;color:var(--ink)}
 .clr{margin-left:10px;padding:4px 10px;border-radius:8px;border:1.5px solid var(--l3);background:transparent;color:var(--l3);font-size:13px;font-weight:700;cursor:pointer;vertical-align:middle}
 .clr:hover{background:var(--l3);color:#120d0a}
 .fixhint{font-size:14.5px;color:var(--gold);font-weight:600}
+/* ===== Niveles en la paleta de la página (naranja Anáhuac) ===== */
+:root,:root[data-theme="light"],:root[data-theme="dark"]{--l0:#ff6a1f;--l1:#ff9a52;--l2:#ffc48a;--l3:#a89385}
 </style>
 </head>
 <body>
@@ -996,7 +998,7 @@ function juryCard(){
 }
 function ini(n){var p=n.split(' ').filter(Boolean);return (p[0][0]+(p[1]?p[1][0]:'')).toUpperCase();}
 var CICON={c1:'building',c2:'book',c3:'chart',c4:'trend',c5:'present',c6:'mic',c7:'chat'};
-var LVC=['var(--l0)','var(--l1)','var(--l2)','var(--l3)'],RLC=['#4ee39b','#6fb1ff','#ffc94d','#ff7a6b'];
+var LVC=['var(--l0)','var(--l1)','var(--l2)','var(--l3)'],RLC=['#ff6a1f','#ff9a52','#ffc48a','#a89385'];
 
 /* ---------- Estado ---------- */
 var S={tab:'programa',sid:ST[0].id,mode:'local',uid:null,ref:null,docs:{},local:{},localWho:null,names:{},user:null,dwn:null,
