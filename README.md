@@ -11,7 +11,8 @@ Coordinación: Mtra. Tania Rivera Lozano.
 - **Evaluador invitado:** el representante de cada empresa evalúa con su nombre y cargo desde su propio QR.
 - **Resultados:** tabla con las calificaciones firmadas y el promedio, exportable a Excel (.csv).
 - **Reportes:** un reporte por practicante en Word (.docx), uno por uno o todos en .zip.
-- **Rúbrica:** criterios y niveles en vista de alto contraste, con letra más grande.
+- **Rúbrica:** criterios y niveles sobre fondo blanco con franjas de color por nivel y letra grande.
+- **Color por practicante:** cada alumno tiene su propio color en la lista, su tarjeta y su encabezado de calificación.
 - **Cartas:** invitaciones en Word para empresas y evaluadores, con su liga de acceso.
 - **Accesos:** liga y código QR personal para cada evaluador y para cada empresa invitada.
 - **Tutorial paso a paso:** se abre solo la primera vez que alguien entra a Evaluar (6 pasos con dibujos; 5 para el invitado de la empresa). Se puede volver a ver desde Evaluar o desde la Guía de uso.
