@@ -816,65 +816,8 @@ label.f{font-size:15.5px;color:var(--ink)}
 .rubrow{grid-template-columns:200px repeat(4,minmax(0,1fr))}
 .rubcell .pt{flex-wrap:wrap}
 .rubric th,.rubric td{font-size:16px}
-/* ===== Rúbrica en fondo blanco ===== */
-.crit.card{--l0:#17784a;--l1:#2456a8;--l2:#a56500;--l3:#c0352a;--on-lc:#ffffff;background:#ffffff;color:#1d1d1f;border:1px solid #e4ddd6;box-shadow:0 14px 30px -20px rgba(0,0,0,.7)}
-.crit.card .crit-h{border-bottom:2px solid #ece6e0}
-.crit.card .crit-h h3{color:#1d1d1f}
-.crit.card .crit-h .badge{background:#fff1e8;color:#c2410c;border:1.5px solid #f6c7a8}
-.crit.card .crit-h .pts{color:#5b524b}
-.crit.card .crit-h .pts b{color:#1d1d1f!important}
-.crit.card .lv{background:#ffffff;border:2px solid color-mix(in srgb,var(--lc) 35%,#e4ddd6);border-top:0;box-shadow:0 2px 0 rgba(0,0,0,.03)}
-.crit.card .lv .n{background:var(--lc);color:#fff}
-.crit.card .lv .n .num{color:#fff}
-.crit.card .lv .d{color:#2b2622}
-.crit.card .lv:hover:not([disabled]){background:color-mix(in srgb,var(--lc) 6%,#fff);border-color:var(--lc)}
-.crit.card .lv[aria-checked="true"]{background:color-mix(in srgb,var(--lc) 13%,#fff);border:3px solid var(--lc);outline:3px solid color-mix(in srgb,var(--lc) 30%,transparent);outline-offset:1px;box-shadow:0 14px 26px -14px var(--lc)}
-.crit.card .lv[aria-checked="true"] .n{background:var(--lc)}
-.crit.card .lv[aria-checked="true"] .d{color:#111;font-weight:600}
-.crit.card .lv[aria-checked="true"]::after{background:var(--lc);color:#fff}
-.crit.card .lv[aria-checked="true"] .n>span:first-child::before{content:"✓ "}
-.crit.card .lvs:has(.lv[aria-checked="true"]) .lv:not([aria-checked="true"]){opacity:.6}
-.crit.card .lvs:has(.lv[aria-checked="true"]) .lv:not([aria-checked="true"]):hover{opacity:1}
-.crit.card :focus-visible{outline:3px solid #c2410c}
-/* Rúbrica (pestaña) en blanco */
-.rubdark{background:#ffffff;color:#1d1d1f;border:1px solid #e4ddd6;box-shadow:0 24px 60px -34px rgba(0,0,0,.8)}
-.rubdark .rh h2{color:#1d1d1f}
-.rubdark .rh p{color:#5b524b}
-.rubdark .eyebrow-s{color:#c2410c!important}
-.rubdark .rublv span:nth-child(1),.rubdark .rubcell:nth-child(2){--lc:#17784a!important}
-.rubdark .rublv span:nth-child(2),.rubdark .rubcell:nth-child(3){--lc:#2456a8!important}
-.rubdark .rublv span:nth-child(3),.rubdark .rubcell:nth-child(4){--lc:#a56500!important}
-.rubdark .rublv span:nth-child(4),.rubdark .rubcell:nth-child(5){--lc:#c0352a!important}
-.rubdark .rublv span{background:var(--lc);color:#fff;border-color:var(--lc);box-shadow:none;text-shadow:none}
-.rubdark .rubhead{background:#faf6f2;border:1.5px solid #ece2d8}
-.rubdark .rubhead .w{color:#c2410c;text-shadow:none}
-.rubdark .rubhead .w small{color:#7a6f66}
-.rubdark .rubhead b{color:#1d1d1f}
-.rubdark .rubhead .ic{color:#c2410c}
-.rubdark .rubcell{background:#ffffff;border:2px solid color-mix(in srgb,var(--lc) 35%,#e4ddd6);padding:0 0 14px;overflow:hidden;box-shadow:none}
-.rubdark .rubcell::before{display:none}
-.rubdark .rubcell:hover{border-color:var(--lc);background:color-mix(in srgb,var(--lc) 5%,#fff);box-shadow:0 10px 22px -16px var(--lc)}
-.rubdark .rubcell .pt{background:var(--lc);color:#fff;text-shadow:none;padding:10px 14px;align-items:center}
-.rubdark .rubcell .pt b{color:#fff;text-shadow:none}
-.rubdark .rubcell p{color:#2b2622;padding:0 14px;margin-top:12px}
-.rubdark .rubtot{border-top:2px solid #ece6e0;color:#5b524b}
-.rubdark .rubtot b{color:#1d1d1f}
-/* Color propio por estudiante */
-.stbtn{--sc:var(--accent);border-left:5px solid var(--sc);background:color-mix(in srgb,var(--sc) 7%,transparent);margin-bottom:4px}
-.stbtn .av{background:var(--sc);border-color:var(--sc);color:#120d0a;font-weight:800}
-.stbtn:hover{background:color-mix(in srgb,var(--sc) 16%,transparent)}
-.stbtn[aria-current="true"]{background:color-mix(in srgb,var(--sc) 26%,transparent);box-shadow:inset 0 0 0 2px var(--sc)}
-.stbtn[aria-current="true"]::before{display:none}
-.stbtn[aria-current="true"] .av{background:var(--sc);border-color:#fff;color:#120d0a;box-shadow:0 0 0 2px var(--sc)}
-.stbtn[aria-current="true"] b{color:#fff}
-.sticky-score{--sc:var(--accent);background:linear-gradient(120deg,color-mix(in srgb,var(--sc) 30%,#1a1512),#120e0c 70%);border:1.5px solid color-mix(in srgb,var(--sc) 55%,transparent)}
-.sticky-score::before{background:var(--sc);width:7px}
-.sticky-score .band{color:var(--sc)}
-.stu-dot{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--sc);margin-bottom:4px}
-.stu-dot::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--sc)}
-.stsel select{border:2px solid var(--sc);font-weight:700}
-.clr{margin-left:10px;padding:4px 10px;border-radius:8px;border:1.5px solid #c0352a;background:#fff;color:#c0352a;font-size:13px;font-weight:700;cursor:pointer;vertical-align:middle}
-.clr:hover{background:#c0352a;color:#fff}
+.clr{margin-left:10px;padding:4px 10px;border-radius:8px;border:1.5px solid var(--l3);background:transparent;color:var(--l3);font-size:13px;font-weight:700;cursor:pointer;vertical-align:middle}
+.clr:hover{background:var(--l3);color:#120d0a}
 .fixhint{font-size:14.5px;color:var(--gold);font-weight:600}
 </style>
 </head>
@@ -985,8 +928,8 @@ ST.forEach(function(s){s.d0=s.d;s.dd=s.d;s.hd=s.h;});
 var ST_BASE=JSON.parse(JSON.stringify(ST)),EV_BASE=JSON.parse(JSON.stringify(EVALS)),CR_BASE=JSON.parse(JSON.stringify(CRIT));
 var TABS=[['programa','Programa','calendar'],['evaluar','Evaluar','clip'],['resultados','Resultados','chart'],['reportes','Reportes','file'],['rubrica','Rúbrica','book'],['cartas','Cartas','mail'],['accesos','Accesos','qr'],['seguimiento','Seguimiento','chart'],['coord','Coordinación','shield']];
 var ON_WEB=/^https?:$/.test(location.protocol)&&!/claude\.ai$|claudeusercontent|claude\.site/.test(location.hostname);
-var BASE_URL=ON_WEB?(location.origin+location.pathname):'https://claude.ai/artifact/EoJQ5TLRA1Wc6mbjykGwNn';
-/* Descargas fuera de Claude: enlace de descarga normal del navegador */
+var BASE_URL=ON_WEB?(location.origin+location.pathname):'https://taniariveraanahuac-creator.github.io/Practicas-Profesionales/';
+/* Descargas en la web: enlace de descarga normal del navegador */
 var WEB_DWN={save:async function(o){var blob=o.data instanceof Blob?o.data:new Blob([o.data]);var u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=o.filename;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(u);a.remove();},1500);return {status:'saved'};}};
 /* Coordinación en GitHub: se activa abriendo la página con #coordinacion en este navegador */
 try{if(location.hash==='#coordinacion'){localStorage.setItem('pp-coord','1');}}catch(e){}
@@ -1121,8 +1064,6 @@ function fmt(n){return (Math.round(n*10)/10).toFixed(1).replace(/\.0$/,'');}
 function band(n){return n>=90?'Sobresaliente':n>=75?'Satisfactorio':n>=60?'Básico':'Insuficiente';}
 function toast(m){toastEl.textContent=m;toastEl.hidden=false;clearTimeout(toastT);toastT=setTimeout(function(){toastEl.hidden=true;},3200);}
 var FZ=[0.9,1,1.12,1.25,1.4];
-var SCOL=['#ff7a45','#3fd0a0','#6fa8ff','#f2c14e','#c08bff','#ff6f9f','#38c7d6','#9ed35a','#ff9d5c','#8f9bff','#f08a6e','#5fd6c0'];
-function scol(id){var i=ST.findIndex(function(x){return x.id===id;});return SCOL[(i<0?0:i)%SCOL.length];}
 function setFz(i){S.fz=Math.max(0,Math.min(FZ.length-1,i));try{localStorage.setItem('pp_fz',String(S.fz));}catch(e){}document.documentElement.style.setProperty('--ez',FZ[S.fz]);}
 S.fz=1;try{var _f=localStorage.getItem('pp_fz');if(_f!=null&&!isNaN(+_f))S.fz=+_f;}catch(e){}setFz(S.fz);
 function fzCtl(){return '<div class="fzctl" role="group" aria-label="Tamaño de letra"><button type="button" data-act="fz" data-d="-1" aria-label="Letra más chica"'+(S.fz<=0?' disabled':'')+'>A−</button><span>'+Math.round(FZ[S.fz]*100)+'%</span><button type="button" data-act="fz" data-d="1" aria-label="Letra más grande"'+(S.fz>=FZ.length-1?' disabled':'')+'>A+</button></div>';}
@@ -1219,7 +1160,7 @@ function chooserView(){
 
 function viewEvaluar(){
   var w=who();
-  var banner=(S.mode==='local')?'<div class="notice">'+ic('info',18)+'<span>'+(window.claude?'Modo local: tus evaluaciones se guardan solo en este navegador y no llegan al promedio compartido. Para firmar en el registro común, abre esta página con tu sesión de Claude.':'Versión web: tus evaluaciones y firmas se guardan en este navegador. Para reunir todo el jurado, usa el respaldo (.json) o la versión en Claude.')+'</span></div>':'';
+  var banner=(S.mode==='local')?'<div class="notice">'+ic('info',18)+'<span>'+(window.claude?'Modo local: tus evaluaciones se guardan solo en este navegador y no llegan al promedio compartido.':'Versión web: tus evaluaciones y firmas se guardan en este navegador. Para reunir todo el jurado, usa el respaldo (.json).')+'</span></div>':'';
   banner='<div class="guidecall">'+ic('book',18)+'<span>¿Primera vez evaluando? Mira el tutorial de 1 minuto: '+(isGuest(w)?'5':'6')+' pasos con dibujos.</span><button type="button" class="btn sm primary" data-act="tuto">'+ic('present',16)+'Ver tutorial</button><button type="button" class="btn sm" data-act="gotab" data-t="guia">Guía completa</button></div>'+banner;
   if(!w)return '<div class="stack">'+banner+chooserView()+'</div>';
   var me=evByK(w), d=myData()||{evals:{}}, s=stById(S.sid);
@@ -1230,7 +1171,7 @@ function viewEvaluar(){
 
   var list=ST.map(function(x){
     var e=d.evals&&d.evals[x.id], st=e&&e.signedAt?'<span class="pill ok">'+ic('check',13)+fmt(score(e))+'</span>':e&&e.bk?'<span class="pill acc">En edición</span>':started(e)?'<span class="pill warn">Borrador</span>':'<span class="pill">Pendiente</span>';
-    return '<button class="stbtn" style="--sc:'+scol(x.id)+'" data-act="pick" data-sid="'+x.id+'"'+(x.id===s.id?' aria-current="true"':'')+'><span class="av sm">'+esc(ini(x.n))+'</span><span class="tx"><b>'+esc(x.n)+'</b><span class="meta"><span class="num">'+x.h+' h</span>'+st+'</span></span></button>';
+    return '<button class="stbtn" data-act="pick" data-sid="'+x.id+'"'+(x.id===s.id?' aria-current="true"':'')+'><span class="av sm">'+esc(ini(x.n))+'</span><span class="tx"><b>'+esc(x.n)+'</b><span class="meta"><span class="num">'+x.h+' h</span>'+st+'</span></span></button>';
   }).join('');
   var sel='<select id="selSid" data-sel="sid" aria-label="Practicante">'+ST.map(function(x){return '<option value="'+x.id+'"'+(x.id===s.id?' selected':'')+'>'+esc(x.n)+'</option>';}).join('')+'</select>';
 
@@ -1274,8 +1215,8 @@ function viewEvaluar(){
   return '<div class="stack">'+banner+pb+
    whoBar(w,isG?((ev.gn||'').trim()||me.n):me.n)+(S.showMy?myAccess(w):'')+
    '<div class="evgrid"><aside class="card stlist" aria-label="Practicantes">'+list+'</aside><div class="stack" style="min-width:0">'+
-   '<div class="stsel" style="--sc:'+scol(s.id)+'">'+sel+'</div>'+evnav+
-   '<div class="sticky-score" style="--sc:'+scol(s.id)+'"><div style="min-width:0"><span class="stu-dot">Practicante '+(ST.indexOf(s)+1)+'</span><h2>'+esc(s.n)+'</h2><span class="muted small">'+esc(s.e)+' · '+sdate(s.d)+' · '+s.h+' h</span></div><div class="big num">'+fmt(tot)+'<small> / 100</small><span class="band">'+(ok?band(tot):'En curso')+'</span></div></div>'+
+   '<div class="stsel">'+sel+'</div>'+evnav+
+   '<div class="sticky-score"><div style="min-width:0"><h2>'+esc(s.n)+'</h2><span class="muted small">'+esc(s.e)+' · '+sdate(s.d)+' · '+s.h+' h</span></div><div class="big num">'+fmt(tot)+'<small> / 100</small><span class="band">'+(ok?band(tot):'En curso')+'</span></div></div>'+
    gcard+crit+
    '<section class="card stack"><label class="f" for="note">Comentarios para el practicante (opcional)</label><textarea id="note" data-note="1"'+' placeholder="Fortalezas, áreas de oportunidad, recomendaciones">'+esc(ev.note||'')+'</textarea>'+sign+
    '<div class="row" style="justify-content:flex-end"><button class="btn" data-act="pick" data-sid="'+nxt.id+'">Siguiente: '+esc(nxt.n.split(' ')[0])+ic('arrow',18)+'</button></div></section>'+
@@ -1299,7 +1240,7 @@ function viewResultados(){
     return '<tr><th scope="row" style="font-weight:400;font-size:15px;color:var(--ink)"><div class="cellp"><span class="av sm">'+esc(ini(s.n))+'</span><div><b>'+esc(s.n)+'</b><span class="muted small">'+esc(s.e)+'</span><button class="repbtn" data-act="toreport" data-sid="'+s.id+'" aria-label="Ver reporte de '+esc(s.n)+'">'+ic('file',14)+'Ver reporte</button></div></div></th>'+cells+cell+'</tr>';
   }).join('');
   var abl=absList();var avgNote='<div class="notice ok">'+ic('info',18)+'<span>El promedio de cada practicante se calcula solo con las evaluaciones firmadas por quienes estuvieron presentes'+(abl.length?'. No asisten: <b>'+esc(abl.map(function(e){return e.s;}).join(', '))+'</b>':'')+'.</span></div>';
-  var note=avgNote+(S.mode==='local'?'<div class="notice">'+ic('info',18)+'<span>'+(window.claude?'Estás viendo solo lo guardado en este navegador. Con tu sesión de Claude se muestran las firmas de todos los evaluadores.':'Estás viendo lo guardado en este navegador.')+'</span></div>':'');
+  var note=avgNote+(S.mode==='local'?'<div class="notice">'+ic('info',18)+'<span>'+(window.claude?'Estás viendo solo lo guardado en este navegador.':'Estás viendo lo guardado en este navegador.')+'</span></div>':'');
   return '<div class="stack">'+note+'<div class="stats">'+stat('pen','Evaluaciones firmadas',all+' de '+(ST.length*NEV))+stat('award','Promedio del grupo (con firmas)',nrows?fmt(sum/nrows):'–')+'</div>'+
    '<div class="secbar">'+coordBtn('firmas','Gestionar firmas')+'<button class="btn dark" data-act="csv"'+(S.dwn?'':' disabled')+'>'+ic('download',18)+'Exportar a Excel (.csv)</button></div>'+
    '<div class="tablewrap res-table"><table><caption class="sr">Calificaciones firmadas por practicante y evaluador</caption><thead>'+head+'</thead><tbody>'+body+'</tbody></table></div>'+
@@ -1411,7 +1352,7 @@ function viewCartas(){
   }
   ctrl+='<label class="f" for="lfecha">Fecha de la carta</label><input type="text" id="lfecha" data-lfecha="1" value="'+esc(S.fecha||today())+'">';
   return '<div class="stack"><div class="row"><div class="segs" role="group" aria-label="Tipo de carta"><button data-act="ltab" data-v="emp" aria-pressed="'+(S.ltab==='emp')+'">'+ic('building',18)+'Representantes de empresa</button><button data-act="ltab" data-v="eva" aria-pressed="'+(S.ltab==='eva')+'">'+ic('award',18)+'Evaluadores invitados</button></div></div>'+
-   (S.dwn?'':'<div class="notice">'+ic('info',18)+'<span>La descarga de archivos Word está disponible al abrir la página desde Claude.</span></div>')+
+   (S.dwn?'':'<div class="notice">'+ic('info',18)+'<span>La descarga de archivos Word no está disponible en este navegador.</span></div>')+
    '<div class="lgrid"><aside class="card stack">'+ctrl+
    '<button class="btn primary" data-act="dl"'+dis+'>'+ic('download',18)+'Descargar esta carta (.docx)</button>'+
    '<button class="btn" data-act="dlall"'+dis+'>'+ic('zip',18)+'Descargar todas (.zip)</button>'+
@@ -1511,7 +1452,7 @@ function viewReportes(){
     return '<button class="stbtn" data-act="rpick" data-sid="'+x.id+'"'+(x.id===s.id?' aria-current="true"':'')+'><span class="av sm">'+esc(ini(x.n))+'</span><span class="tx"><b>'+esc(x.n)+'</b><span class="meta"><span>'+n+' de '+EVALS.length+' firmas</span><span class="num">'+(a==null?'–':fmt(a))+'</span></span></span></button>';}).join('');
   var sel='<div class="stsel"><label class="f" for="rsid">Practicante</label><select id="rsid" data-sel="rsid">'+ST.map(function(x){return '<option value="'+x.id+'"'+(x.id===s.id?' selected':'')+'>'+esc(x.n)+'</option>';}).join('')+'</select></div>';
   return '<div class="stack"><div class="sec-title"><span class="eyebrow-s">Reportes automáticos</span><h2>Un reporte por practicante.</h2><p>Se arma solo con las evaluaciones firmadas: puntos por criterio, promedio, nivel, comentarios y firmas con folio. Descárgalo en Word para archivarlo o enviarlo.</p></div>'+
-   (S.dwn?'':'<div class="notice">'+ic('info',18)+'<span>La descarga en Word está disponible al abrir la página desde Claude.</span></div>')+
+   (S.dwn?'':'<div class="notice">'+ic('info',18)+'<span>La descarga en Word no está disponible en este navegador.</span></div>')+
    '<div class="evgrid"><aside class="card stlist" aria-label="Practicantes">'+list+'</aside><div class="stack" style="min-width:0">'+sel+
    '<div class="row"><button class="btn primary" data-act="dlrep"'+dis+'>'+ic('download',18)+'Descargar reporte (.docx)</button><button class="btn" data-act="dlrepall"'+dis+'>'+ic('zip',18)+'Todos los reportes (.zip)</button></div>'+
    '<article class="paper rep" aria-label="Vista previa del reporte de '+esc(s.n)+'">'+reportDoc(s).paras.map(paraHTML).join('')+'</article></div></div></div>';
@@ -1684,9 +1625,9 @@ function viewAccesos(){
       '<div class="qbody"><div class="qr">'+qrSVG(url)+'</div><div class="qmeta"><div class="qprog"><b class="num">'+n+'</b> de '+ST.length+' evaluaciones firmadas<div class="qbar"><i style="width:'+Math.round(n/ST.length*100)+'%"></i></div></div><div class="qlink">'+esc(url)+'</div></div></div>'+
       '<div class="qact"><button class="btn primary" data-act="actas" data-k="'+e.k+'" data-sid="">'+ic('arrow',16)+'Entrar aquí</button><button class="btn" data-act="copylink" data-k="'+e.k+'">'+ic('copy',16)+'Copiar liga</button><a class="btn" href="'+esc(url)+'" target="_blank" rel="noopener">'+ic('ext',16)+'Abrir</a><button class="btn" data-act="dlqr" data-k="'+e.k+'"'+(S.dwn?'':' disabled')+'>'+ic('download',16)+'QR (.png)</button></div></article>';
   }).join('');
-  return '<div class="stack"><section class="card acc-intro"><div><span class="idx">ACCESO PERSONAL</span><h2>Liga y código QR por evaluador</h2><p class="muted">Cada liga abre la pestaña Evaluar con el evaluador ya seleccionado. Comparte el QR impreso o la liga por correo. Para firmar, cada persona necesita acceso compartido a esta página y su sesión de Claude iniciada.</p></div>'+
+  return '<div class="stack"><section class="card acc-intro"><div><span class="idx">ACCESO PERSONAL</span><h2>Liga y código QR por evaluador</h2><p class="muted">Cada liga abre la pestaña Evaluar con el evaluador ya seleccionado. Comparte el QR impreso o la liga por correo.</p></div>'+
     '<button class="btn primary" data-act="dlqrall"'+(S.dwn?'':' disabled')+'>'+ic('zip',18)+'Descargar todos los QR (.zip)</button></section>'+
-    (S.dwn?'':'<div class="notice">'+ic('info',18)+'<span>La descarga de imágenes está disponible al abrir la página desde Claude. Mientras tanto puedes copiar las ligas.</span></div>')+
+    (S.dwn?'':'<div class="notice">'+ic('info',18)+'<span>La descarga de imágenes no está disponible en este navegador. Puedes copiar las ligas.</span></div>')+
     '<div class="qgrid">'+cards+'</div>'+guestAccess()+'</div>';
 }
 function guestAccess(){

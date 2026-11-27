@@ -11,9 +11,8 @@ Coordinación: Mtra. Tania Rivera Lozano.
 - **Evaluador invitado:** el representante de cada empresa evalúa con su nombre y cargo desde su propio QR.
 - **Resultados:** tabla con las calificaciones firmadas y el promedio, exportable a Excel (.csv).
 - **Reportes:** un reporte por practicante en Word (.docx), uno por uno o todos en .zip.
-- **Rúbrica:** criterios y niveles sobre fondo blanco con franjas de color por nivel y letra grande.
+- **Rúbrica:** criterios y niveles en vista de alto contraste, con letra más grande.
 - **Corregir elecciones:** se puede tocar otro nivel o el mismo para quitarlo, o usar **Quitar** en cada criterio; si la evaluación ya estaba firmada entra sola en modo edición.
-- **Color por practicante:** cada alumno tiene su propio color en la lista, su tarjeta y su encabezado de calificación.
 - **Cartas:** invitaciones en Word para empresas y evaluadores, con su liga de acceso.
 - **Accesos:** liga y código QR personal para cada evaluador y para cada empresa invitada.
 - **Tutorial paso a paso:** se abre solo la primera vez que alguien entra a Evaluar (6 pasos con dibujos; 5 para el invitado de la empresa). Se puede volver a ver desde Evaluar o desde la Guía de uso.
@@ -70,10 +69,7 @@ GitHub Pages solo publica archivos; no tiene base de datos. En esta versión:
 
 - Cada evaluador guarda sus calificaciones y firmas **en su propio navegador**.
 - Los resultados y reportes muestran lo que hay en el navegador donde se abren.
-- Para reunir todo, usa el registro compartido de la versión en Claude, o captura las evaluaciones en un solo equipo cambiando de evaluador con un toque.
-
-La versión publicada en Claude sí comparte en tiempo real las firmas de todo el jurado:
-https://claude.ai/artifact/EoJQ5TLRA1Wc6mbjykGwNn
+- Para reunir todo, usa el respaldo (.json) o captura las evaluaciones en un solo equipo cambiando de evaluador con un toque.
 
 Para que la versión de GitHub también comparta las evaluaciones se puede conectar a Google Apps Script con una hoja de cálculo, igual que la plataforma del Proyecto Integrador de ADM1401.
 
