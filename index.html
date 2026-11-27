@@ -745,6 +745,77 @@ button.attbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .qtool label{justify-content:flex-start}
 .unpub{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 16px;border-radius:14px;border:1px solid rgba(240,192,88,.5);background:var(--warn-soft);color:var(--ink);font-size:14.5px}
 .unpub .ic{color:var(--warn)}.unpub span{flex:1;min-width:200px}
+/* ===== Evaluar: letra grande y rúbrica de alto contraste ===== */
+:root{--ez:1;--on-lc:#120d0a}
+.evgrid,.rubdark{zoom:var(--ez)}
+.evgrid .btn{font-size:16px;min-height:48px}
+.whobar .wh b{font-size:20px}
+.whobar .wh span{font-size:15.5px}
+.whobtn b{font-size:16px}
+.whobtn small{font-size:14px}
+.stbtn b{font-size:16.5px}
+.stbtn .meta{font-size:14.5px}
+.stbtn .pill{font-size:13.5px}
+.evnav .grow b{font-size:17px}
+.evnav .grow span{font-size:15px}
+.switch{font-size:15.5px}
+.sticky-score h2{font-size:clamp(22px,2.6vw,28px)}
+.sticky-score .muted.small{font-size:15.5px}
+.big{font-size:50px}
+.big small{font-size:17px}
+.big .band{font-size:14px}
+/* Criterio */
+.crit{gap:16px}
+.crit-h{border-bottom:2px solid var(--line2)}
+.crit-h .badge{width:46px;height:46px;background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.crit-h h3{font-size:clamp(21px,2.2vw,25px)}
+.crit-h .pts{font-size:16px;color:var(--ink)}
+.crit-h .pts b{font-size:26px!important}
+.lvs{grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:12px}
+/* Nivel: franja de color sólida + descripción en tinta */
+.lv{padding:0;gap:0;overflow:hidden;border:2px solid color-mix(in srgb,var(--lc) 55%,var(--line2));border-top:2px solid var(--lc);background:color-mix(in srgb,var(--lc) 7%,var(--surface));border-radius:12px}
+.lv .n{background:var(--lc);color:var(--on-lc);padding:10px 14px;font-size:15px;letter-spacing:.04em}
+.lv .n .num{color:var(--on-lc);font-size:22px;font-weight:800}
+.lv .d{padding:12px 14px 18px;font-size:17px;line-height:1.5;color:var(--ink)}
+.lv:hover:not([disabled]){border-color:var(--lc);background:color-mix(in srgb,var(--lc) 14%,var(--surface))}
+.lv[aria-checked="true"]{background:var(--lc);border-color:#fff;outline:3px solid #fff;outline-offset:2px;box-shadow:0 12px 26px -12px var(--lc)}
+.lv[aria-checked="true"] .n{background:color-mix(in srgb,#fff 35%,var(--lc))}
+.lv[aria-checked="true"] .d{color:var(--on-lc);font-weight:600}
+.lv[aria-checked="true"]::after{content:"✓";position:absolute;right:10px;bottom:10px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--on-lc);color:var(--lc);font-weight:800;font-size:18px}
+.lvs:has(.lv[aria-checked="true"]) .lv:not([aria-checked="true"]){opacity:.7}
+.lvs:has(.lv[aria-checked="true"]) .lv:not([aria-checked="true"]):hover{opacity:1}
+.lv[disabled]{opacity:1}
+.lvs:has(.lv[disabled]) .lv[disabled]:not([aria-checked="true"]){opacity:.55}
+/* Comentarios y firma */
+label.f{font-size:15.5px;color:var(--ink)}
+.evgrid textarea,.evgrid input[type=text],.evgrid select{font-size:17px}
+.sig .meta{font-size:16px}
+.sig .name{font-size:46px}
+.sig .acts{display:flex;flex-wrap:wrap;gap:10px}
+.savest{display:inline-flex;align-items:center;gap:6px;font-size:14.5px;font-weight:600;color:var(--ok);background:var(--ok-soft);padding:4px 10px;border-radius:8px}
+.editing{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:var(--r-sm);background:var(--warn-soft);color:var(--warn);border:1.5px solid currentColor;font-size:16px;width:100%}
+.editing b{color:var(--ink)}
+.mbar .sc{font-size:26px}
+/* Tamaño de letra */
+.fzctl{display:inline-flex;align-items:center;border:1.5px solid var(--line2);border-radius:10px;overflow:hidden;flex:none}
+.fzctl button{min-width:46px;min-height:44px;border:0;background:var(--surface);color:var(--ink);font-family:var(--f-display);font-weight:800;font-size:17px;cursor:pointer}
+.fzctl button:hover{background:var(--surface2)}
+.fzctl button+button{border-left:1.5px solid var(--line2)}
+.fzctl span{padding:0 10px;font-size:14px;font-weight:700;color:var(--muted);border-left:1.5px solid var(--line2);min-height:44px;display:grid;place-items:center}
+.evnav .grow{flex:1 1 0;min-width:0}
+@media (max-width:640px){.evnav .grow{flex:1 1 calc(100% - 140px)}.evnav .fzctl{order:5}.evnav .switch{order:6;width:auto;margin-left:auto}}
+/* Rúbrica (pestaña) */
+.rubcell{background:color-mix(in srgb,var(--lc) 13%,#120e0c);border:1.5px solid color-mix(in srgb,var(--lc) 55%,#2a2420)}
+.rubcell .pt{font-size:14.5px}
+.rubcell .pt b{font-size:24px}
+.rubcell p{font-size:17px;line-height:1.55;color:#fff}
+.rubhead b{font-size:18.5px}
+.rubhead .w{font-size:34px}
+.rublv span{font-size:14.5px}
+.rubtot{font-size:16.5px}
+.rubrow{grid-template-columns:200px repeat(4,minmax(0,1fr))}
+.rubcell .pt{flex-wrap:wrap}
+.rubric th,.rubric td{font-size:16px}
 </style>
 </head>
 <body>
@@ -989,6 +1060,10 @@ function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'
 function fmt(n){return (Math.round(n*10)/10).toFixed(1).replace(/\.0$/,'');}
 function band(n){return n>=90?'Sobresaliente':n>=75?'Satisfactorio':n>=60?'Básico':'Insuficiente';}
 function toast(m){toastEl.textContent=m;toastEl.hidden=false;clearTimeout(toastT);toastT=setTimeout(function(){toastEl.hidden=true;},3200);}
+var FZ=[0.9,1,1.12,1.25,1.4];
+function setFz(i){S.fz=Math.max(0,Math.min(FZ.length-1,i));try{localStorage.setItem('pp_fz',String(S.fz));}catch(e){}document.documentElement.style.setProperty('--ez',FZ[S.fz]);}
+S.fz=1;try{var _f=localStorage.getItem('pp_fz');if(_f!=null&&!isNaN(+_f))S.fz=+_f;}catch(e){}setFz(S.fz);
+function fzCtl(){return '<div class="fzctl" role="group" aria-label="Tamaño de letra"><button type="button" data-act="fz" data-d="-1" aria-label="Letra más chica"'+(S.fz<=0?' disabled':'')+'>A−</button><span>'+Math.round(FZ[S.fz]*100)+'%</span><button type="button" data-act="fz" data-d="1" aria-label="Letra más grande"'+(S.fz>=FZ.length-1?' disabled':'')+'>A+</button></div>';}
 function score(ev){var t=0;if(!ev||!ev.lv)return 0;CRIT.forEach(function(c){var i=ev.lv[c.id];if(i!=null)t+=c.w*LV[i].f;});return t;}
 function complete(ev){return !!(ev&&ev.lv&&CRIT.every(function(c){return ev.lv[c.id]!=null;}));}
 function started(ev){return !!(ev&&ev.lv&&Object.keys(ev.lv).length);}
@@ -1091,7 +1166,7 @@ function viewEvaluar(){
   var canSwitch=true, isG=!!me.guest;
 
   var list=ST.map(function(x){
-    var e=d.evals&&d.evals[x.id], st=e&&e.signedAt?'<span class="pill ok">'+ic('check',13)+fmt(score(e))+'</span>':started(e)?'<span class="pill warn">Borrador</span>':'<span class="pill">Pendiente</span>';
+    var e=d.evals&&d.evals[x.id], st=e&&e.signedAt?'<span class="pill ok">'+ic('check',13)+fmt(score(e))+'</span>':e&&e.bk?'<span class="pill acc">En edición</span>':started(e)?'<span class="pill warn">Borrador</span>':'<span class="pill">Pendiente</span>';
     return '<button class="stbtn" data-act="pick" data-sid="'+x.id+'"'+(x.id===s.id?' aria-current="true"':'')+'><span class="av sm">'+esc(ini(x.n))+'</span><span class="tx"><b>'+esc(x.n)+'</b><span class="meta"><span class="num">'+x.h+' h</span>'+st+'</span></span></button>';
   }).join('');
   var sel='<select id="selSid" data-sel="sid" aria-label="Practicante">'+ST.map(function(x){return '<option value="'+x.id+'"'+(x.id===s.id?' selected':'')+'>'+esc(x.n)+'</option>';}).join('')+'</select>';
@@ -1110,16 +1185,18 @@ function viewEvaluar(){
     var verified=S.mode==='db'&&S.names[S.uid]?'<br>Cuenta verificada: '+esc(S.names[S.uid]):'';
     sign='<div class="sig"><div><div class="name">'+esc(isG?((ev.gn||'').trim()||me.n):me.n)+'</div><div class="meta">'+esc(isG?cargoOf({e:me,ev:ev},s):me.cargo)+'</div></div>'+
       '<div class="meta"><span class="pill ok">'+ic('check',13)+'Evaluación firmada</span><br>'+esc(fdate(ev.signedAt))+'<br>Folio '+esc(ev.folio||'')+verified+'</div>'+
-      '<button class="btn" data-act="unsign">'+ic('undo',18)+'Retirar firma para corregir</button></div>';
+      '<div class="acts"><button class="btn primary" data-act="unsign">'+ic('pen',18)+'Editar evaluación</button></div></div>';
   }else{
-    sign='<div class="sig"><div class="meta" style="max-width:420px">'+(ok?'Tu calificación para este practicante es <b>'+fmt(tot)+' / 100</b>. Al firmar queda registrada con tu nombre y la hora.':'Te falta calificar <b>'+miss+' de '+CRIT.length+'</b> criterios. Si firmas ahora te llevamos al primero pendiente.')+'</div>'+
-      '<button class="btn primary" data-act="sign">'+ic('pen',18)+'Firmar evaluación</button></div>';
+    var savedLbl=d.updatedAt&&started(ev)?'<span class="savest">'+ic('check',14)+'Guardado · '+new Date(d.updatedAt).toLocaleTimeString('es-MX',{hour:'2-digit',minute:'2-digit'})+'</span>':'';
+    var edBox=ev.bk?'<div class="editing">'+ic('info',20)+'<div><b>Estás editando una evaluación ya firmada</b>'+(ev.bk.folio?' (folio '+esc(ev.bk.folio)+')':'')+'. Cambia lo que necesites y toca <b>Guardar cambios y firmar</b>. Si no quieres cambiar nada, toca <b>Cancelar edición</b> y se queda como estaba.</div></div>':'';
+    sign=edBox+'<div class="sig"><div class="meta" style="max-width:420px">'+savedLbl+(savedLbl?'<br>':'')+(ok?'Tu calificación para este practicante es <b>'+fmt(tot)+' / 100</b>. Al firmar queda registrada con tu nombre y la hora.':'Te falta calificar <b>'+miss+' de '+CRIT.length+'</b> criterios. Si firmas ahora te llevamos al primero pendiente.')+'</div>'+
+      '<div class="acts">'+(ev.bk?'<button class="btn" data-act="canceledit">'+ic('undo',18)+'Cancelar edición</button>':'<button class="btn" data-act="savedraft">'+ic('download',18)+'Guardar avance</button>')+'<button class="btn primary" data-act="sign">'+ic('pen',18)+(ev.bk?'Guardar cambios y firmar':'Firmar evaluación')+'</button></div></div>';
   }
   var idx=ST.indexOf(s), nxt=ST[(idx+1)%ST.length], prv=ST[(idx-1+ST.length)%ST.length];
   var doneN=ST.filter(function(x){var e=d.evals&&d.evals[x.id];return e&&e.signedAt;}).length;
   var evnav='<div class="card evnav"><button class="btn icon" data-act="pick" data-sid="'+prv.id+'" aria-label="Practicante anterior: '+esc(prv.n)+'">'+ic('prev',20)+'</button>'+
     '<div class="grow"><b>Practicante '+(idx+1)+' de '+ST.length+'</b><span>'+doneN+' de '+ST.length+' evaluaciones firmadas</span><div class="bar" role="progressbar" aria-label="Avance de tus evaluaciones" aria-valuemin="0" aria-valuemax="'+ST.length+'" aria-valuenow="'+doneN+'"><i style="width:'+Math.round(doneN/ST.length*100)+'%"></i></div></div>'+
-    '<label class="switch"><input type="checkbox" data-auto="1"'+(S.auto?' checked':'')+'> Avanzar al firmar</label>'+
+    fzCtl()+'<label class="switch"><input type="checkbox" data-auto="1"'+(S.auto?' checked':'')+'> Avanzar al firmar</label>'+
     '<button class="btn icon" data-act="pick" data-sid="'+nxt.id+'" aria-label="Siguiente practicante: '+esc(nxt.n)+'">'+ic('arrow',20)+'</button></div>';
 
   var gdef={gn:ev.gn!=null?ev.gn:((S.lf[s.id]&&S.lf[s.id].rep)||s.rep||''),gc:ev.gc!=null?ev.gc:((S.lf[s.id]&&S.lf[s.id].cargo)||''),ge:ev.ge!=null?ev.ge:((S.lf[s.id]&&S.lf[s.id].emp)||s.e)};
@@ -1791,8 +1868,11 @@ app.addEventListener('click',function(e){
     if(isGuest(who())){['gn','gc','ge'].forEach(function(k){var el=document.getElementById('gf_'+k);if(el)r2.ev[k]=el.value.trim();});
       if(!r2.ev.gn){var ge=document.getElementById('gf_err'),gi=document.getElementById('gf_gn');if(ge)ge.hidden=false;if(gi){gi.setAttribute('aria-invalid','true');gi.setAttribute('aria-describedby','gf_err');gi.scrollIntoView({block:'center',behavior:'smooth'});gi.focus({preventScroll:true});}toast('Escribe tu nombre completo para firmar');return;}}
     var miss=CRIT.filter(function(c){return r2.ev.lv[c.id]==null;});
-    if(miss.length){toast('Falta calificar: '+miss.map(function(c){return c.t;}).join(', '));var fe=document.getElementById('lv-'+miss[0].id+'-0');if(fe){fe.scrollIntoView({block:'center',behavior:'smooth'});fe.focus({preventScroll:true});}return;}var ts=new Date().toISOString(),tot=score(r2.ev);r2.ev.signedAt=ts;r2.ev.total=Math.round(tot*10)/10;r2.ev.folio=folio(who(),S.sid,ts,tot);commit(r2.d);render();afterSign();}
-  else if(a==='unsign'){var r3=ensureEv(S.sid);r3.ev.signedAt=null;r3.ev.folio=null;r3.ev.total=null;commit(r3.d);render();}
+    if(miss.length){toast('Falta calificar: '+miss.map(function(c){return c.t;}).join(', '));var fe=document.getElementById('lv-'+miss[0].id+'-0');if(fe){fe.scrollIntoView({block:'center',behavior:'smooth'});fe.focus({preventScroll:true});}return;}var ts=new Date().toISOString(),tot=score(r2.ev);r2.ev.signedAt=ts;r2.ev.total=Math.round(tot*10)/10;r2.ev.folio=folio(who(),S.sid,ts,tot);if(r2.ev.bk){r2.ev.editedAt=ts;r2.ev.prevFolio=r2.ev.bk.folio||null;delete r2.ev.bk;}commit(r2.d);render();afterSign();}
+  else if(a==='unsign'){var r3=ensureEv(S.sid),e3=r3.ev;e3.bk=JSON.parse(JSON.stringify({lv:e3.lv||{},note:e3.note||'',signedAt:e3.signedAt,folio:e3.folio||null,total:e3.total!=null?e3.total:null,gn:e3.gn!=null?e3.gn:null,gc:e3.gc!=null?e3.gc:null,ge:e3.ge!=null?e3.ge:null}));e3.signedAt=null;e3.folio=null;e3.total=null;commit(r3.d);render();toast('Modo edición: cambia lo que necesites y vuelve a firmar.');}
+  else if(a==='canceledit'){var r4=ensureEv(S.sid),e4=r4.ev,bk=e4.bk;if(bk){e4.lv=bk.lv;e4.note=bk.note;e4.signedAt=bk.signedAt;e4.folio=bk.folio;e4.total=bk.total;['gn','gc','ge'].forEach(function(k){if(bk[k]!=null)e4[k]=bk[k];});delete e4.bk;commit(r4.d);}render();toast('Edición cancelada. La evaluación firmada se quedó como estaba.');}
+  else if(a==='savedraft'){var r5=ensureEv(S.sid);var nt=document.getElementById('note');if(nt)r5.ev.note=nt.value;if(isGuest(who()))['gn','gc','ge'].forEach(function(k){var el=document.getElementById('gf_'+k);if(el)r5.ev[k]=el.value.trim();});clearTimeout(saveT);commit(r5.d);render();toast('Avance guardado. Puedes regresar y terminar después.');}
+  else if(a==='fz'){setFz(S.fz+(+b.dataset.d));render();}
   else if(a==='setwho'){var c=app.querySelector('input[name=whoSel]:checked');if(!c){toast('Elige tu nombre para continuar.');return;}
     switchWho(c.value);render();window.scrollTo(0,0);}
   else if(a==='gocoord'||a==='cojump'){e.preventDefault();var sec=b.dataset.sec;if(S.tab!=='coord'){S.tab='coord';try{history.replaceState(null,'','#coord');}catch(x){}render();}var el=document.getElementById('co-'+sec);if(el){el.scrollIntoView({behavior:'smooth',block:'start'});var f=el.querySelector('input,textarea,button');if(f)f.focus({preventScroll:true});}}
