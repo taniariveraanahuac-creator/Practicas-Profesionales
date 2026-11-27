@@ -1089,7 +1089,7 @@ function loadLocal(){try{var r=JSON.parse(localStorage.getItem(LS)||'null');if(r
 function commit(d){
   d.updatedAt=new Date().toISOString();
   if(S.mode==='db'){S.docs[S.uid]=d;S.pending=JSON.parse(JSON.stringify(d));S.ref.set(d).catch(function(err){S.pending=null;toast('No se pudo guardar: '+((err&&err.message)||'error')+'. Revisa que tengas acceso a esta página.');});}
-  else{S.local[d.who]=d;try{persistLocal();}catch(e){}}
+  else{S.local[d.who]=d;try{persistLocal();}catch(e){}cloudQueueDoc(d);}
 }
 function ensureEv(sid){
   var d=myData();
@@ -1162,7 +1162,7 @@ function chooserView(){
 
 function viewEvaluar(){
   var w=who();
-  var banner=(S.mode==='local')?'<div class="notice">'+ic('info',18)+'<span>'+(window.claude?'Modo local: tus evaluaciones se guardan solo en este navegador y no llegan al promedio compartido.':'Versión web: tus evaluaciones y firmas se guardan en este navegador. Para reunir todo el jurado, usa el respaldo (.json).')+'</span></div>':'';
+  var banner=CLOUD.on?cloudBanner():(S.mode==='local')?'<div class="notice">'+ic('info',18)+'<span>'+(window.claude?'Modo local: tus evaluaciones se guardan solo en este navegador y no llegan al promedio compartido.':'Versión web: tus evaluaciones y firmas se guardan en este navegador. Para reunir todo el jurado, usa el respaldo (.json).')+'</span></div>':'';
   banner='<div class="guidecall">'+ic('book',18)+'<span>¿Primera vez evaluando? Mira el tutorial de 1 minuto: '+(isGuest(w)?'5':'6')+' pasos con dibujos.</span><button type="button" class="btn sm primary" data-act="tuto">'+ic('present',16)+'Ver tutorial</button><button type="button" class="btn sm" data-act="gotab" data-t="guia">Guía completa</button></div>'+banner;
   if(!w)return '<div class="stack">'+banner+chooserView()+'</div>';
   var me=evByK(w), d=myData()||{evals:{}}, s=stById(S.sid);
@@ -1242,7 +1242,7 @@ function viewResultados(){
     return '<tr><th scope="row" style="font-weight:400;font-size:15px;color:var(--ink)"><div class="cellp"><span class="av sm">'+esc(ini(s.n))+'</span><div><b>'+esc(s.n)+'</b><span class="muted small">'+esc(s.e)+'</span><button class="repbtn" data-act="toreport" data-sid="'+s.id+'" aria-label="Ver reporte de '+esc(s.n)+'">'+ic('file',14)+'Ver reporte</button></div></div></th>'+cells+cell+'</tr>';
   }).join('');
   var abl=absList();var avgNote='<div class="notice ok">'+ic('info',18)+'<span>El promedio de cada practicante se calcula solo con las evaluaciones firmadas por quienes estuvieron presentes'+(abl.length?'. No asisten: <b>'+esc(abl.map(function(e){return e.s;}).join(', '))+'</b>':'')+'.</span></div>';
-  var note=avgNote+(S.mode==='local'?'<div class="notice">'+ic('info',18)+'<span>'+(window.claude?'Estás viendo solo lo guardado en este navegador.':'Estás viendo lo guardado en este navegador.')+'</span></div>':'');
+  var note=avgNote+(CLOUD.on?cloudBanner():S.mode==='local'?'<div class="notice">'+ic('info',18)+'<span>'+(window.claude?'Estás viendo solo lo guardado en este navegador.':'Estás viendo lo guardado en este navegador.')+'</span></div>':'');
   return '<div class="stack">'+note+'<div class="stats">'+stat('pen','Evaluaciones firmadas',all+' de '+(ST.length*NEV))+stat('award','Promedio del grupo (con firmas)',nrows?fmt(sum/nrows):'–')+'</div>'+
    '<div class="secbar">'+coordBtn('firmas','Gestionar firmas')+'<button class="btn dark" data-act="csv"'+(S.dwn?'':' disabled')+'>'+ic('download',18)+'Exportar a Excel (.csv)</button></div>'+
    '<div class="tablewrap res-table"><table><caption class="sr">Calificaciones firmadas por practicante y evaluador</caption><thead>'+head+'</thead><tbody>'+body+'</tbody></table></div>'+
@@ -1546,7 +1546,7 @@ function setCfg(key,v){
 function reopenEval(k,sid){
   var stamp={reopenedAt:new Date().toISOString(),reopenedBy:'Coordinación'};
   function clear(ev){ev.signedAt=null;ev.folio=null;ev.total=null;Object.assign(ev,stamp);}
-  if(S.mode!=='db'){var d=S.local[k];if(d&&d.evals&&d.evals[sid]){clear(d.evals[sid]);try{persistLocal();}catch(e){}}}
+  if(S.mode!=='db'){var d=S.local[k];if(d&&d.evals&&d.evals[sid]){clear(d.evals[sid]);try{persistLocal();}catch(e){}cloudQueueDoc(d);}}
   else{Object.keys(S.docs).forEach(function(u){var d=S.docs[u],t=null;if(!d)return;
     if(d.who===k&&d.evals&&d.evals[sid]&&d.evals[sid].signedAt)t=d.evals[sid];
     else if(d.other&&d.other[k]&&d.other[k][sid]&&d.other[k][sid].signedAt)t=d.other[k][sid];
@@ -1800,7 +1800,7 @@ function coordGuide(){if(!isCoord())return '';
 function viewGuia(){
   function steps(a){return '<ol class="gsteps">'+a.map(function(t,i){return '<li><span class="gn num">'+(i+1)+'</span><span>'+t+'</span></li>';}).join('')+'</ol>';}
   function gcard(icn,title,sub,body,cls){return '<section class="card gcard'+(cls?' '+cls:'')+'"><div class="sec-h"><span class="badge">'+ic(icn,20)+'</span><div><h2>'+title+'</h2><p class="muted small" style="margin:2px 0 0">'+sub+'</p></div></div>'+body+'</section>';}
-  var where=S.mode==='db'?'Tus firmas se guardan en el registro común y llegan al promedio al instante.':'Tus firmas se guardan en el dispositivo y navegador con que evalúas: usa el mismo todo el evento y no borres el historial.';
+  var where=(S.mode==='db'||CLOUD.on)?'Tus firmas se guardan en el registro común y llegan al promedio al instante.':'Tus firmas se guardan en el dispositivo y navegador con que evalúas: usa el mismo todo el evento y no borres el historial.';
   var abl=absList();
   var jur=steps([
     'Abre tu <b>liga personal</b> o escanea tu <b>código QR</b> (pestaña <b>Accesos</b>).',
@@ -1852,7 +1852,7 @@ function softRender(){
   render();
 }
 app.addEventListener('focusout',function(){if(S.dirty)setTimeout(function(){var a=document.activeElement;if(!(a&&app.contains(a)&&/^(TEXTAREA|INPUT|SELECT)$/.test(a.tagName)))render();},50);});
-tabsEl.addEventListener('click',function(e){var b=e.target.closest('[data-t]');if(b){S.tab=b.dataset.t;try{history.replaceState(null,'','#'+S.tab);}catch(x){}S.lastHash=S.tab;S.preWho=null;render();window.scrollTo(0,0);}});
+tabsEl.addEventListener('click',function(e){var b=e.target.closest('[data-t]');if(b){S.tab=b.dataset.t;try{history.replaceState(null,'','#'+S.tab);}catch(x){}S.lastHash=S.tab;S.preWho=null;render();window.scrollTo(0,0);if(CLOUD.on)cloudPull();}});
 
 document.getElementById('editModeIn').addEventListener('change',function(e){S.editMode=e.target.checked;try{localStorage.setItem('pp-edit',S.editMode?'1':'0');}catch(x){}render();toast(S.editMode?'Modo edición activado: verás los campos editables en cada pestaña':'Modo edición desactivado');});
 tabsEl.addEventListener('keydown',function(e){
@@ -1938,12 +1938,78 @@ app.addEventListener('input',function(e){
 });
 
 /* ---------- Arranque ---------- */
+/* ---------- Nube: Google Apps Script + Hoja de Google (configurada en nube.json) ---------- */
+var CLOUD={url:'',on:false,ok:null,last:null,busy:false,snap:{},q:{},timer:null};
+function evKey(ev){try{var c=Object.assign({},ev);delete c.ts;return JSON.stringify(c);}catch(e){return '';}}
+function cloudSaveQ(){try{localStorage.setItem('pp_cloudq',JSON.stringify(CLOUD.q));}catch(e){}}
+function cloudItem(w,sid,ev){var e=evByK(w),st=stById(sid);return {who:w,sid:sid,ts:ev.ts,wn:(e&&e.guest?((ev.gn||'').trim()||'Invitado de empresa'):(e?e.n:w)),sn:st?st.n:sid,ev:JSON.parse(JSON.stringify(ev))};}
+function cloudQueueDoc(d){
+  if(!CLOUD.on||!d||!d.evals||!d.who)return;var now=new Date().toISOString(),n=0;
+  Object.keys(d.evals).forEach(function(sid){var k=d.who+'|'+sid,ev=d.evals[sid],kk=evKey(ev);
+    if(CLOUD.snap[k]!==kk){ev.ts=now;CLOUD.snap[k]=kk;CLOUD.q[k]=cloudItem(d.who,sid,ev);n++;}});
+  if(!n)return;try{persistLocal();}catch(e){}cloudSaveQ();CLOUD.ok=null;cloudBadge();
+  clearTimeout(CLOUD.timer);CLOUD.timer=setTimeout(cloudFlush,600);
+}
+async function cloudFlush(){
+  var keys=Object.keys(CLOUD.q);if(!CLOUD.on||!keys.length)return;
+  var items=keys.map(function(k){return CLOUD.q[k];});
+  try{
+    var r=await fetch(CLOUD.url,{method:'POST',body:JSON.stringify({action:'save',items:items})});
+    var j=await r.json();if(!j||!j.ok)throw new Error((j&&j.error)||'error');
+    items.forEach(function(it){var k=it.who+'|'+it.sid;if(CLOUD.q[k]&&CLOUD.q[k].ts===it.ts)delete CLOUD.q[k];});
+    CLOUD.ok=true;CLOUD.last=new Date();
+  }catch(e){CLOUD.ok=false;clearTimeout(CLOUD.timer);CLOUD.timer=setTimeout(cloudFlush,15000);}
+  cloudSaveQ();cloudBadge();
+}
+async function cloudPull(){
+  if(!CLOUD.on||CLOUD.busy)return;CLOUD.busy=true;
+  try{
+    var r=await fetch(CLOUD.url+(CLOUD.url.indexOf('?')<0?'?':'&')+'action=list&t='+Date.now(),{cache:'no-store'});
+    var j=await r.json();if(!j||!j.ok)throw new Error('error');
+    var rows=j.rows||[],have={},changed=false;
+    rows.forEach(function(row){
+      var w=row.who,sid=row.sid,ev=row.ev;if(!w||!sid||!ev)return;var k=w+'|'+sid;have[k]=row.ts||'';
+      if(CLOUD.q[k])return;
+      var d=S.local[w];if(!d){d=S.local[w]={who:w,evals:{}};}if(!d.evals)d.evals={};
+      var cur=d.evals[sid];
+      if(!cur||(cur.ts||'')<(row.ts||'')){ev.ts=row.ts;d.evals[sid]=ev;CLOUD.snap[k]=evKey(ev);if(!d.updatedAt||d.updatedAt<row.ts)d.updatedAt=row.ts;changed=true;}
+    });
+    Object.keys(S.local).forEach(function(w){var d=S.local[w];if(!d||!d.evals)return;
+      Object.keys(d.evals).forEach(function(sid){var k=w+'|'+sid,ev=d.evals[sid];if(CLOUD.q[k])return;
+        if(!(started(ev)||ev.signedAt||ev.note))return;
+        if(!(k in have)||(ev.ts&&ev.ts>have[k])){if(!ev.ts)ev.ts=new Date().toISOString();CLOUD.snap[k]=evKey(ev);CLOUD.q[k]=cloudItem(w,sid,ev);}});});
+    CLOUD.ok=true;CLOUD.last=CLOUD.last||new Date();
+    if(changed){try{persistLocal();}catch(e){}softRender();}
+    if(Object.keys(CLOUD.q).length){cloudSaveQ();cloudFlush();}
+  }catch(e){CLOUD.ok=false;}
+  CLOUD.busy=false;cloudBadge();
+}
+function cloudStatus(){
+  var pend=Object.keys(CLOUD.q).length;
+  if(CLOUD.ok===false)return '<b style="color:var(--warn)">Sin conexión con la nube.</b> Lo que captures se guarda en este navegador y se sube solo al reconectar'+(pend?' ('+pend+' pendiente'+(pend>1?'s':'')+')':'')+'.';
+  if(pend||CLOUD.ok===null)return 'Subiendo a la nube…';
+  return '✓ Todo guardado en la nube'+(CLOUD.last?' · '+CLOUD.last.toLocaleTimeString('es-MX',{hour:'2-digit',minute:'2-digit'}):'');
+}
+function cloudBadge(){var el=document.getElementById('cloudst');if(el)el.innerHTML=cloudStatus();}
+function cloudBanner(){return '<div class="notice ok cloudn">'+ic('check',18)+'<span><b>Guardado en la nube.</b> Las evaluaciones y firmas de todo el jurado se reúnen en la hoja de Google de la coordinación y cuentan para el promedio. <span id="cloudst">'+cloudStatus()+'</span></span></div>';}
+async function cloudInit(){
+  if(window.claude||S.mode==='db')return;
+  try{var r=await fetch('nube.json?v='+Date.now(),{cache:'no-store'});if(!r.ok)return;var j=await r.json();
+    var u=(j&&j.url||'').trim();if(!/^https:\/\/script\.google(usercontent)?\.com\//.test(u))return;CLOUD.url=u;}catch(e){return;}
+  CLOUD.on=true;
+  try{CLOUD.q=JSON.parse(localStorage.getItem('pp_cloudq')||'{}')||{};}catch(e){CLOUD.q={};}
+  Object.keys(S.local).forEach(function(w){var d=S.local[w];if(!d||!d.evals)return;Object.keys(d.evals).forEach(function(sid){if(d.evals[sid].ts)CLOUD.snap[w+'|'+sid]=evKey(d.evals[sid]);});});
+  render();await cloudPull();
+  setInterval(function(){if(!document.hidden)cloudPull();},10000);
+  document.addEventListener('visibilitychange',function(){if(!document.hidden)cloudPull();});
+  window.addEventListener('online',cloudPull);
+}
 async function boot(){
   routeHash();
   document.addEventListener('qrready',function(){if(S.tab==='accesos')render();});
-  window.addEventListener('hashchange',function(){if(routeHash())render();});
+  window.addEventListener('hashchange',function(){if(routeHash())render();if(CLOUD.on)cloudPull();});
   S.fecha=today();loadLocal();applySched();render();
-  var c=window.claude;if(!c||!c.use){S.dwn=WEB_DWN;S.ready=true;render();loadPublished();return;}
+  var c=window.claude;if(!c||!c.use){S.dwn=WEB_DWN;S.ready=true;render();loadPublished();cloudInit();return;}
   var r=await Promise.all([c.use('db'),c.use('user'),c.use('downloads')]).catch(function(){return [null,null,null];});
   S.dwn=r[2]||null;
   var db=r[0],user=r[1],uid=null;

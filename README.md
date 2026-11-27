@@ -24,6 +24,8 @@ Coordinación: Mtra. Tania Rivera Lozano.
 | Archivo | Para qué sirve |
 |---|---|
 | `index.html` | La plataforma completa en un solo archivo: programa, evaluación con rúbrica, resultados, reportes, cartas, accesos con QR, seguimiento y coordinación. |
+| `nube.json` | Dirección de la Hoja de Google donde se guardan las evaluaciones (ver «Guardado en la nube»). |
+| `Code.gs` | Código del servidor para pegar en Apps Script de la Hoja de Google. |
 | `programa.json` | Programa publicado (fechas, horarios, lugar, coffee break y demás ajustes de coordinación) que ven todos los visitantes. |
 | `.nojekyll` | Le indica a GitHub Pages que publique el archivo tal cual. |
 | `README.md` | Estas instrucciones. |
@@ -63,15 +65,17 @@ Desde ese momento ese navegador muestra el panel de control y el interruptor **E
 4. En GitHub entra a **Add file → Upload files**, arrastra `programa.json` (reemplaza al anterior) y toca **Commit changes**.
 5. En 1 o 2 minutos todos ven la nueva fecha y horario. Mientras no lo publiques, la página te muestra el aviso «Tienes cambios sin publicar».
 
-## Importante: dónde se guardan las evaluaciones
+## Guardado en la nube (Hoja de Google)
 
-GitHub Pages solo publica archivos; no tiene base de datos. En esta versión:
+Con la nube activada, cada calificación, firma y corrección se sube sola a una Hoja de Google de la coordinación, y todos los equipos ven las firmas de todo el jurado y el promedio.
 
-- Cada evaluador guarda sus calificaciones y firmas **en su propio navegador**.
-- Los resultados y reportes muestran lo que hay en el navegador donde se abren.
-- Para reunir todo, usa el respaldo (.json) o captura las evaluaciones en un solo equipo cambiando de evaluador con un toque.
+1. Crea una Hoja de Google nueva.
+2. **Extensiones → Apps Script**, borra lo que aparezca y pega todo el archivo `Code.gs` de este repositorio. Guarda.
+3. **Implementar → Nueva implementación → Aplicación web**. Ejecutar como: **Yo**. Quién tiene acceso: **Cualquier usuario**. Toca **Implementar** y autoriza.
+4. Copia la **URL de la aplicación web** (termina en `/exec`).
+5. En GitHub abre `nube.json`, toca el lápiz y deja: `{ "url": "https://script.google.com/macros/s/…/exec" }`. Toca **Commit changes**.
 
-Para que la versión de GitHub también comparta las evaluaciones se puede conectar a Google Apps Script con una hoja de cálculo, igual que la plataforma del Proyecto Integrador de ADM1401.
+En 1 o 2 minutos la página muestra «Guardado en la nube». Si falla el internet, lo capturado se queda en el navegador y se sube solo al reconectar. Mientras `nube.json` esté vacío, cada navegador guarda lo suyo.
 
 ## Requisitos
 
