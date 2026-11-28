@@ -14,7 +14,7 @@ Coordinación: Mtra. Tania Rivera Lozano.
 - **Rúbrica:** criterios y niveles en vista de alto contraste, con letra más grande.
 - **Corregir elecciones:** se puede tocar otro nivel o el mismo para quitarlo, o usar **Quitar** en cada criterio; si la evaluación ya estaba firmada entra sola en modo edición.
 - **Cartas:** invitaciones en Word para empresas y evaluadores, con su liga de acceso.
-- **Accesos:** liga y código QR personal para cada evaluador y para cada empresa invitada.
+- **Accesos:** liga y código QR personal (con el logo Anáhuac al centro) para cada evaluador y para cada empresa invitada, y botón **WhatsApp** que abre el chat con la invitación, la fecha, el lugar y la liga ya escritos (celular opcional, se guarda solo en ese navegador).
 - **Tutorial paso a paso:** se abre solo la primera vez que alguien entra a Evaluar (6 pasos con dibujos; 5 para el invitado de la empresa). Se puede volver a ver desde Evaluar o desde la Guía de uso.
 - **Fecha y horario (solo coordinación):** cambiar la fecha de todos, recorrer el horario, nueva hora de inicio o ajustar practicante por practicante, y publicarlo para todos con `programa.json`.
 - **Seguimiento y Coordinación (solo coordinación):** qué evalúa cada quien en vivo, reapertura de firmas, edición de practicantes, jurado, rúbrica y horarios, y respaldo en .json.
